@@ -19,9 +19,13 @@ class MyApp extends StatelessWidget {
       theme: themeData.copyWith(
         textTheme:
             GoogleFonts.notoSansTextTheme(Theme.of(context).textTheme).copyWith(
-          headline1: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-          bodyText1: TextStyle(fontSize: 18),
-          bodyText2: TextStyle(fontSize: 16),
+          headline1: TextStyle(
+            fontSize: 24,
+            fontWeight: FontWeight.bold,
+            color: Colors.black,
+          ),
+          bodyText1: TextStyle(fontSize: 18, color: Colors.black),
+          bodyText2: TextStyle(fontSize: 16, color: Colors.black),
         ),
       ),
       home: SplashScreen(),

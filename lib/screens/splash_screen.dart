@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:getya/screens/signin_screen.dart';
 
 class SplashScreen extends StatelessWidget {
   static final routeName = '/spash';
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: GestureDetector(
-        onTap: () {
-          // Navigator.pushReplacementNamed(context, SigninScreen.routeName);
-        },
-        child: Center(
+    return GestureDetector(
+      onTap: () {
+        Navigator.pushReplacementNamed(context, SignInScreen.routeName);
+      },
+      child: Scaffold(
+        body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
