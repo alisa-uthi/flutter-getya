@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:getya/widgets/custom_btn.dart';
 import '../constants.dart';
 import '../widgets/signin_form.dart';
+import 'signup_screen.dart';
 
 class SignInScreen extends StatelessWidget {
   static final routeName = '/signin';
@@ -35,10 +37,46 @@ class SignInScreen extends StatelessWidget {
               ),
               SizedBox(height: kDefaultPadding),
               SignInForm(),
+              SizedBox(height: kDefaultPadding),
+              DividerWithText(),
+              SizedBox(height: kDefaultPadding),
+              CustomBtn(
+                boxColor: kLightGreyColor,
+                text: "Sign up",
+                onPressed: () {
+                  Navigator.pushNamed(context, SignUpScreen.routeName);
+                },
+              ),
             ],
           ),
         ),
       ),
     );
+  }
+
+  Row DividerWithText() {
+    return Row(children: <Widget>[
+      Expanded(
+        child: Divider(
+          thickness: 2,
+          color: Colors.grey[400],
+        ),
+      ),
+      SizedBox(width: 5),
+      Text(
+        "Or",
+        style: TextStyle(
+          color: Colors.grey[400],
+          fontWeight: FontWeight.w600,
+        ),
+      ),
+      SizedBox(width: 5),
+      Expanded(
+        child: Divider(
+          thickness: 2,
+          color: Colors.grey[400],
+        ),
+      ),
+    ]);
   }
 }

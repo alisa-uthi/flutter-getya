@@ -4,6 +4,7 @@ import 'package:getya/constants.dart';
 class CustomBtn extends StatelessWidget {
   final String text;
   final Color boxColor;
+  final Color textColor;
   final Function onPressed;
 
   const CustomBtn({
@@ -11,6 +12,7 @@ class CustomBtn extends StatelessWidget {
     this.text,
     this.boxColor,
     this.onPressed,
+    this.textColor,
   }) : super(key: key);
 
   @override
@@ -28,7 +30,7 @@ class CustomBtn extends StatelessWidget {
             child: Text(
           text,
           style: Theme.of(context).textTheme.bodyText1.copyWith(
-                color: Colors.white,
+                color: textColor,
               ),
         )),
       ),

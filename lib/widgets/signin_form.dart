@@ -25,6 +25,7 @@ class _SignInFormState extends State<SignInForm> {
           CustomBtn(
             text: "Sign in",
             boxColor: kGreenColor,
+            textColor: Colors.white,
             onPressed: () {
               if (_formKey.currentState.validate()) {
                 // TODO: Navigate to home screen
