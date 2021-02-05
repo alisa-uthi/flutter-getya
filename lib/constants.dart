@@ -10,6 +10,11 @@ const kDefaultPadding = 20.00;
 
 ThemeData themeData = ThemeData(
   scaffoldBackgroundColor: kPrimaryColor,
+  appBarTheme: AppBarTheme(
+    elevation: 0,
+    actionsIconTheme: IconThemeData(color: Colors.black),
+    iconTheme: IconThemeData(color: Colors.black),
+  ),
 );
 
 // Form field
