@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:getya/constants.dart';
+import 'package:getya/screens/home_screen.dart';
 import 'package:getya/widgets/custom_btn.dart';
 
 class SignInForm extends StatefulWidget {
@@ -28,8 +29,8 @@ class _SignInFormState extends State<SignInForm> {
             textColor: Colors.white,
             onPressed: () {
               if (_formKey.currentState.validate()) {
-                // TODO: Navigate to home screen
-
+                // TODO: Store values in the model
+                Navigator.pushNamed(context, HomeScreen.routeName);
               }
             },
           ),

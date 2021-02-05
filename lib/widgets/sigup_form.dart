@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:getya/constants.dart';
+import 'package:getya/screens/signup_success_screen.dart';
 import 'package:getya/widgets/custom_btn.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 
@@ -53,8 +54,8 @@ class _SignUpFormState extends State<SignUpForm> {
             textColor: Colors.white,
             onPressed: () {
               if (_formKey.currentState.validate()) {
-                // TODO: Navigate to registration complete screen and
-                // store value in the model
+                // TODO: Store values in the model
+                Navigator.pushNamed(context, SignUpSuccessScreen.routeName);
               }
             },
           ),
