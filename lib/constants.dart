@@ -31,17 +31,15 @@ InputDecoration inputDecoration = InputDecoration(
 );
 
 OutlineInputBorder outlineInputBorder = OutlineInputBorder(
-  borderRadius: BorderRadius.circular(kDefaultPadding / 2.5),
+  borderRadius: BorderRadius.circular(kDefaultPadding),
   borderSide: BorderSide.none,
 );
 
 // Form error
 final RegExp emailPattern = RegExp(r"^[a-zA-Z0-9.]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
-const String kEmailNullError = "Please Enter your email";
+const String kEmailNullError = "Please Enter Your Email";
 const String kInvalidEmailError = "Please Enter Valid Email";
-const String kPassNullError = "Please Enter your password";
+const String kPassNullError = "Please Enter Your Password";
 const String kShortPassError = "Password must have at least 8 characters";
-const String kMatchPassError = "Passwords don't match";
-const String kNamelNullError = "Please Enter your name";
-const String kPhoneNumberNullError = "Please Enter your phone number";
-const String kAddressNullError = "Please Enter your address";
+const String kMatchPassError = "Password doesn't match";
+const String kFieldNullError = "Please Enter Your ";

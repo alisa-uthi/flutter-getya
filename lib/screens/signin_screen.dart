@@ -38,7 +38,7 @@ class SignInScreen extends StatelessWidget {
               SizedBox(height: kDefaultPadding),
               SignInForm(),
               SizedBox(height: kDefaultPadding),
-              DividerWithText(),
+              _DividerWithText(),
               SizedBox(height: kDefaultPadding),
               CustomBtn(
                 boxColor: kLightGreyColor,
@@ -54,7 +54,7 @@ class SignInScreen extends StatelessWidget {
     );
   }
 
-  Row DividerWithText() {
+  Row _DividerWithText() {
     return Row(children: <Widget>[
       Expanded(
         child: Divider(
