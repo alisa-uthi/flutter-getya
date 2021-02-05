@@ -156,7 +156,6 @@ class _SignUpFormState extends State<SignUpForm> {
         ),
         SizedBox(height: kDefaultPadding / 2.5),
         TextFormField(
-          keyboardType: TextInputType.emailAddress,
           decoration: inputDecoration.copyWith(hintText: nameField),
           validator: (value) {
             if (value.isEmpty) {
@@ -180,7 +179,7 @@ class _SignUpFormState extends State<SignUpForm> {
         ),
         SizedBox(height: kDefaultPadding / 2.5),
         TextFormField(
-          obscureText: true,
+          keyboardType: TextInputType.phone,
           decoration: inputDecoration.copyWith(hintText: "XXX-XXX-XXXX"),
           validator: (value) {
             if (value.isEmpty) {
