@@ -14,6 +14,7 @@ ThemeData themeData = ThemeData(
     elevation: 0,
     actionsIconTheme: IconThemeData(color: Colors.black),
     iconTheme: IconThemeData(color: Colors.black),
+    color: kSecondaryColor,
   ),
 );
 

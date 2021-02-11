@@ -26,8 +26,9 @@ class SplashScreen extends StatelessWidget {
                   fontSize: 40,
                   letterSpacing: 3,
                   fontWeight: FontWeight.bold,
+                  color: Colors.white,
                 ),
-              )
+              ),
             ],
           ),
         ),
