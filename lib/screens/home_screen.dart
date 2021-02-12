@@ -13,7 +13,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
   var _filteredPharmacies = List<Pharmacy>();
 
   @override
@@ -29,7 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
       query = query.toLowerCase().trim();
 
       dummySearchList.forEach((pharmacy) {
-        if (pharmacy.name.toLowerCase().contains(query)) {
+        if (pharmacy.name.toLowerCase().trim().contains(query)) {
           dummyListData.add(pharmacy);
         }
         setState(() {
@@ -48,7 +47,6 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: _scaffoldKey,
       endDrawer: CustomDrawer(),
       appBar: buildAppBar(),
       bottomNavigationBar: ViewCartBottomNavBar(),

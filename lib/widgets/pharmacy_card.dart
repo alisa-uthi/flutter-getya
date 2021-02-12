@@ -1,21 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:getya/constants.dart';
 import 'package:getya/models/pharmacy.dart';
+import 'package:getya/screens/pharmacy_products_screen.dart';
 
 class PharmacyCard extends StatelessWidget {
   const PharmacyCard({
     Key key,
-    @required Pharmacy phamacy,
-  })  : phamacy = phamacy,
+    @required Pharmacy pharmacy,
+  })  : pharmacy = pharmacy,
         super(key: key);
 
-  final Pharmacy phamacy;
+  final Pharmacy pharmacy;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
         // TODO: Navigate to detail screen
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => PharmacyProductsScreen(pharmacy: pharmacy),
+            ));
       },
       child: Container(
         width: double.infinity,
@@ -28,12 +34,12 @@ class PharmacyCard extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Image.asset(phamacy.imgPath),
+            Image.asset(pharmacy.imgPath),
             SizedBox(width: kDefaultPadding / 2),
             Padding(
               padding: const EdgeInsets.only(top: kDefaultPadding / 2.5),
               child: Text(
-                phamacy.name,
+                pharmacy.name,
                 style: Theme.of(context).textTheme.bodyText1,
               ),
             ),
@@ -57,7 +63,7 @@ class PharmacyCard extends StatelessWidget {
                     children: [
                       Icon(Icons.lock_clock),
                       SizedBox(width: 3),
-                      Text(phamacy.startTime + "\n" + phamacy.endTime),
+                      Text(pharmacy.startTime + "\n" + pharmacy.endTime),
                     ],
                   )
                 ],
