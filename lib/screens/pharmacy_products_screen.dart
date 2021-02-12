@@ -65,7 +65,7 @@ class _PharmacyProductsScreenState extends State<PharmacyProductsScreen> {
         break;
     }
     _originalProducts.forEach((product) {
-      if (product.productType == category) {
+      if (product.category == category) {
         tempProducts.add(product);
       }
     });
