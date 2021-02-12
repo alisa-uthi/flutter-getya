@@ -49,11 +49,8 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       key: _scaffoldKey,
-      drawer: CustomDrawer(),
-      appBar: PreferredSize(
-        preferredSize: Size.fromHeight(65.0),
-        child: buildAppBar(),
-      ),
+      endDrawer: CustomDrawer(),
+      appBar: buildAppBar(),
       bottomNavigationBar: ViewCartBottomNavBar(),
       body: Container(
         margin: EdgeInsets.symmetric(
@@ -85,7 +82,7 @@ class _HomeScreenState extends State<HomeScreen> {
               child: ListView.builder(
                 itemCount: _filteredPharmacies.length,
                 itemBuilder: (context, index) {
-                  return PharmacyCard(phamacy: _filteredPharmacies[index]);
+                  return PharmacyCard(pharmacy: _filteredPharmacies[index]);
                 },
               ),
             ),
@@ -98,27 +95,22 @@ class _HomeScreenState extends State<HomeScreen> {
   AppBar buildAppBar() {
     return AppBar(
       title: Container(
-        margin: EdgeInsets.only(top: 10),
         child: TextFormField(
           decoration: inputDecoration.copyWith(
-            hintText: "Find Pharmacy",
-            hintStyle: TextStyle(fontSize: 18),
-            prefixIcon: Icon(Icons.search, size: 25),
-          ),
+              hintText: "Find Pharmacy",
+              hintStyle: TextStyle(fontSize: 18),
+              prefixIcon: Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: kDefaultPadding / 2),
+                child: Icon(Icons.search, size: 25),
+              ),
+              prefixIconConstraints: BoxConstraints(
+                minWidth: 25,
+                minHeight: 25,
+              ),
+              contentPadding: EdgeInsets.symmetric(vertical: 5)),
           onChanged: (query) {
             filterSearchResults(query);
-          },
-        ),
-      ),
-      leading: Center(
-        child: IconButton(
-          icon: Icon(
-            Icons.menu,
-            color: Colors.white,
-            size: 35,
-          ),
-          onPressed: () {
-            _scaffoldKey.currentState.openDrawer();
           },
         ),
       ),
