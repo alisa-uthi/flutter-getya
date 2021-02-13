@@ -6,6 +6,8 @@ import 'package:getya/screens/notification/notification_screen.dart';
 import 'package:getya/screens/pharmacyProducts/pharmacy_products_screen.dart';
 import 'package:getya/screens/productDetail/product_detail_screen.dart';
 import 'package:getya/screens/profile/profile_screen.dart';
+import 'package:getya/screens/reportIssue/report_issue_screen.dart';
+import 'package:getya/screens/reportIssue/report_success_screen.dart';
 import 'package:getya/screens/shoppingCart/shopping_cart_screen.dart';
 import 'package:getya/screens/signup/signup_screen.dart';
 import 'package:getya/screens/signup/signup_success_screen.dart';
@@ -26,4 +28,6 @@ final Map<String, WidgetBuilder> routes = {
   EditProfileScreen.routeName: (context) => EditProfileScreen(),
   ShoppingCartScreen.routeName: (context) => ShoppingCartScreen(),
   DeliveryStatusScreen.routeName: (context) => DeliveryStatusScreen(),
+  ReportIssueScreen.routeName: (context) => ReportIssueScreen(),
+  ReportSucessScreen.routeName: (context) => ReportSucessScreen(),
 };
