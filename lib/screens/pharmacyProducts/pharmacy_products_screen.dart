@@ -3,8 +3,9 @@ import 'package:getya/constants.dart';
 import 'package:getya/models/pharmacy.dart';
 import 'package:getya/models/product.dart';
 import 'package:getya/widgets/custom_drawer.dart';
-import 'file:///D:/Work_ICT/3rd%20YEAR_2020/Wireless/getya/lib/screens/pharmacyProducts/components/product_card.dart';
 import 'package:getya/widgets/view_cart_bottom_nav_bar.dart';
+
+import 'components/product_card.dart';
 
 class PharmacyProductsScreen extends StatefulWidget {
   static final routeName = "/pharmacy/products";

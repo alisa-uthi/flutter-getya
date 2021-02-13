@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:getya/constants.dart';
+import 'package:getya/models/user.dart';
 
 class CustomDrawerHeader extends StatelessWidget {
   const CustomDrawerHeader({
@@ -18,7 +19,9 @@ class CustomDrawerHeader extends StatelessWidget {
           ),
           SizedBox(width: 20),
           Text(
-            "Benimaru\nShinmon",
+            currentUser != null
+                ? currentUser.firstname + "\n" + currentUser.lastname
+                : "Benimaru\nShinmon",
             style: Theme.of(context).textTheme.headline1,
           ),
           Spacer(),

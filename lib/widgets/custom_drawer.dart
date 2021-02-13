@@ -1,4 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:getya/screens/deliveryStatus/delivery_status_screen.dart';
+import 'package:getya/screens/home/home_screen.dart';
+import 'package:getya/screens/notification/notification_screen.dart';
+import 'package:getya/screens/profile/profile_screen.dart';
+import 'package:getya/screens/shoppingCart/shopping_cart_screen.dart';
+import 'package:getya/screens/signin/signin_screen.dart';
 import 'package:getya/widgets/custom_drawer_header.dart';
 
 class CustomDrawer extends StatelessWidget {
@@ -20,6 +26,15 @@ class CustomDrawer extends StatelessWidget {
     "Sign Out",
   ];
 
+  final List<String> routeNames = [
+    HomeScreen.routeName,
+    ShoppingCartScreen.routeName,
+    DeliveryStatusScreen.routeName,
+    NotificationScreen.routeName,
+    ProfileScreen.routeName,
+    SignInScreen.routeName,
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -34,7 +49,10 @@ class CustomDrawer extends StatelessWidget {
                 itemBuilder: (context, index) {
                   return GestureDetector(
                     onTap: () {
-                      // TODO: Navigate to each screen
+                      Navigator.pushReplacementNamed(
+                        context,
+                        routeNames[index],
+                      );
                     },
                     child: ListTile(
                       leading: icons[index],

@@ -42,7 +42,7 @@ class SignUpSuccessScreen extends StatelessWidget {
             SizedBox(height: kDefaultPadding * 3),
             GestureDetector(
               onTap: () {
-                Navigator.pushNamed(context, HomeScreen.routeName);
+                Navigator.pushReplacementNamed(context, HomeScreen.routeName);
               },
               child: Text(
                 "Tap Here To Begin",

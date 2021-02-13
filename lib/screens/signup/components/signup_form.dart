@@ -4,9 +4,10 @@ import 'package:getya/constants.dart';
 import 'package:getya/methods/account_method.dart';
 import 'package:getya/methods/personal_info_methods.dart';
 import 'package:getya/models/user.dart';
-import 'file:///D:/Work_ICT/3rd%20YEAR_2020/Wireless/getya/lib/screens/signup/signup_success_screen.dart';
 import 'package:getya/widgets/custom_btn.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
+
+import '../signup_success_screen.dart';
 
 enum GenderOption { female, male, other }
 
