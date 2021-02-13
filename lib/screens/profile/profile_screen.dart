@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:getya/constants.dart';
-import 'package:getya/screens/edit_personal_info_screen.dart';
+import 'package:getya/screens/editProfile/edit_profile_screen.dart';
 import 'package:getya/widgets/custom_drawer.dart';
-import 'package:getya/widgets/personal_info_detail.dart';
+
+import 'components/personal_info_detail.dart';
 
 class ProfileScreen extends StatefulWidget {
   static final routeName = "/profile";
@@ -46,7 +47,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   onPressed: () {
                     Navigator.pushNamed(
                       context,
-                      EditPersonalInfoScreen.routeName,
+                      EditProfileScreen.routeName,
                     );
                   },
                   height: 10,

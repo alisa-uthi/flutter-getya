@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
 import 'package:getya/constants.dart';
-import 'package:getya/screens/edit_profile/components/personal_info_form.dart';
 import 'package:getya/widgets/custom_drawer.dart';
 
-import 'edit_profile/components/avartar_with_camera.dart';
+import 'components/avartar_with_camera.dart';
+import 'components/personal_info_form.dart';
 
-class EditPersonalInfoScreen extends StatefulWidget {
+class EditProfileScreen extends StatefulWidget {
   static final routeName = "/profile/edit";
   @override
-  _EditPersonalInfoScreenState createState() => _EditPersonalInfoScreenState();
+  _EditProfileScreenState createState() => _EditProfileScreenState();
 }
 
-class _EditPersonalInfoScreenState extends State<EditPersonalInfoScreen> {
+class _EditProfileScreenState extends State<EditProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

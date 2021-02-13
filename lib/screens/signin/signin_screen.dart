@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:getya/widgets/custom_btn.dart';
-import '../constants.dart';
-import '../widgets/signin_form.dart';
-import 'signup_screen.dart';
+import '../../constants.dart';
+import 'components/signin_form.dart';
+import '../signup/signup_screen.dart';
 
 class SignInScreen extends StatelessWidget {
   static final routeName = '/signin';

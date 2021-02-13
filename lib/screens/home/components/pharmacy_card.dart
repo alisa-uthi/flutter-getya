@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:getya/constants.dart';
 import 'package:getya/models/pharmacy.dart';
-import 'package:getya/screens/pharmacy_products_screen.dart';
+import 'file:///D:/Work_ICT/3rd%20YEAR_2020/Wireless/getya/lib/screens/pharmacyProducts/pharmacy_products_screen.dart';
 
 class PharmacyCard extends StatelessWidget {
   const PharmacyCard({

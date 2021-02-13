@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:getya/constants.dart';
 import 'package:getya/models/user.dart';
-import 'package:getya/screens/signin_screen.dart';
+import 'file:///D:/Work_ICT/3rd%20YEAR_2020/Wireless/getya/lib/screens/signin/signin_screen.dart';
 import 'package:getya/widgets/custom_btn.dart';
 
 class PersonalInfoDetail extends StatelessWidget {

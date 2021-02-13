@@ -5,7 +5,7 @@ import 'package:getya/models/user.dart';
 import 'package:getya/widgets/custom_btn.dart';
 
 import '../../../constants.dart';
-import '../../profile_screen.dart';
+import '../../profile/profile_screen.dart';
 
 class PersonalInfoForm extends StatefulWidget {
   @override

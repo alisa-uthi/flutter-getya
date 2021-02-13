@@ -1,9 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:getya/screens/home_screen.dart';
-import 'package:getya/screens/notification_screen.dart';
-import 'package:getya/screens/profile_screen.dart';
-import 'package:getya/screens/signin_screen.dart';
-import 'package:getya/screens/signup_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:getya/screens/splash_screen.dart';
 
@@ -33,7 +28,7 @@ class MyApp extends StatelessWidget {
           bodyText2: TextStyle(fontSize: 16, color: Colors.black),
         ),
       ),
-      home: SignInScreen(),
+      home: SplashScreen(),
     );
   }
 }

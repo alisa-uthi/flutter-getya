@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:getya/constants.dart';
 import 'package:getya/models/product.dart';
-import 'package:getya/widgets/adjust_quantity_field.dart';
+import 'file:///D:/Work_ICT/3rd%20YEAR_2020/Wireless/getya/lib/screens/productDetail/components/adjust_quantity_field.dart';
 import 'package:getya/widgets/custom_btn.dart';
 import 'package:getya/widgets/custom_drawer.dart';
-import 'package:getya/widgets/product_detail_form.dart';
+import 'file:///D:/Work_ICT/3rd%20YEAR_2020/Wireless/getya/lib/screens/productDetail/components/product_detail_form.dart';
 
 class ProductDetailScreen extends StatefulWidget {
   static final routeName = '/pharmacy/product/detail';

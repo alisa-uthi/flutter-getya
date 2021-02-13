@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:getya/constants.dart';
-import 'package:getya/screens/home_screen.dart';
+import 'file:///D:/Work_ICT/3rd%20YEAR_2020/Wireless/getya/lib/screens/home/home_screen.dart';
 
 class SignUpSuccessScreen extends StatelessWidget {
   static final routeName = '/signup-success';
