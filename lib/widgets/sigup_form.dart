@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:getya/constants.dart';
+import 'package:getya/methods/account_method.dart';
+import 'package:getya/methods/personal_info_methods.dart';
+import 'package:getya/models/user.dart';
 import 'package:getya/screens/signup_success_screen.dart';
 import 'package:getya/widgets/custom_btn.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
@@ -17,6 +20,7 @@ class _SignUpFormState extends State<SignUpForm> {
   String _firstname, _lastname, _address, _phone;
   String _username, _email, _password, _confirmedPass;
   final ValueNotifier<String> _dob = ValueNotifier('');
+  GenderOption _gender = GenderOption.male;
 
   @override
   Widget build(BuildContext context) {
@@ -24,182 +28,36 @@ class _SignUpFormState extends State<SignUpForm> {
       key: _formKey,
       child: Column(
         children: [
-          _buildGeneralField(
-              'Name', (value) => setState(() => _firstname = value)),
+          PersonalInfoMethods.buildGeneralField(
+            'Name',
+            (value) => setState(() => _firstname = value),
+            null,
+            context,
+          ),
           SizedBox(height: kDefaultPadding),
-          _buildGeneralField(
-              'Surname', (value) => setState(() => _lastname = value)),
+          PersonalInfoMethods.buildGeneralField(
+            'Surname',
+            (value) => setState(() => _lastname = value),
+            null,
+            context,
+          ),
           SizedBox(height: kDefaultPadding),
-          _buildGeneralField(
-              'Address', (value) => setState(() => _address = value)),
+          PersonalInfoMethods.buildGeneralField(
+            'Address',
+            (value) => setState(() => _address = value),
+            null,
+            context,
+          ),
           SizedBox(height: kDefaultPadding),
-          _buildPhoneField(),
+          PersonalInfoMethods.buildPhoneField(
+            null,
+            (value) => setState(() => _phone = value),
+            context,
+          ),
           SizedBox(height: kDefaultPadding),
           _buildGenderRadio(),
           SizedBox(height: kDefaultPadding),
-          _buildDobField(),
-          SizedBox(height: kDefaultPadding),
-          _buildEmailField(),
-          SizedBox(height: kDefaultPadding),
-          _buildGeneralField(
-              'Username', (value) => setState(() => _username = value)),
-          SizedBox(height: kDefaultPadding),
-          _buildPasswordField(),
-          SizedBox(height: kDefaultPadding),
-          _buildConfirmedPasswordField(),
-          SizedBox(height: kDefaultPadding * 2),
-          CustomBtn(
-            boxColor: kGreenColor,
-            text: "Confirm",
-            textColor: Colors.white,
-            onPressed: () {
-              if (_formKey.currentState.validate()) {
-                // TODO: Store values in the model
-                Navigator.pushNamed(context, SignUpSuccessScreen.routeName);
-              }
-            },
-          ),
-          SizedBox(height: kDefaultPadding),
-        ],
-      ),
-    );
-  }
-
-  Column _buildEmailField() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          "Email",
-          style: Theme.of(context).textTheme.bodyText2,
-        ),
-        SizedBox(height: kDefaultPadding / 2.5),
-        TextFormField(
-          keyboardType: TextInputType.emailAddress,
-          decoration: inputDecoration.copyWith(hintText: "Email"),
-          validator: (value) {
-            if (value.isEmpty) {
-              return kEmailNullError;
-            }
-            if (!emailPattern.hasMatch(value)) {
-              return kInvalidEmailError;
-            }
-            return null;
-          },
-          onChanged: (value) => setState(() => _email = value),
-        ),
-      ],
-    );
-  }
-
-  Column _buildPasswordField() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          "Password",
-          style: Theme.of(context).textTheme.bodyText2,
-        ),
-        SizedBox(height: kDefaultPadding / 2.5),
-        TextFormField(
-          obscureText: true,
-          decoration: inputDecoration.copyWith(hintText: "Password"),
-          validator: (value) {
-            if (value.isEmpty) {
-              return kPassNullError;
-            }
-            if (value.length < 8) {
-              return kShortPassError;
-            }
-            return null;
-          },
-          onChanged: (value) => setState(() => _password = value),
-        ),
-      ],
-    );
-  }
-
-  Column _buildConfirmedPasswordField() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          "Confirm Password",
-          style: Theme.of(context).textTheme.bodyText2,
-        ),
-        SizedBox(height: kDefaultPadding / 2.5),
-        TextFormField(
-          obscureText: true,
-          decoration: inputDecoration.copyWith(hintText: "Confirm Password"),
-          validator: (value) {
-            if (value.isEmpty) {
-              return kPassNullError;
-            }
-            if (_password != _confirmedPass) {
-              return kMatchPassError;
-            }
-            return null;
-          },
-          onChanged: (value) => setState(() => _confirmedPass = value),
-        ),
-      ],
-    );
-  }
-
-  Column _buildGeneralField(String nameField, Function onChanged) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          nameField,
-          style: Theme.of(context).textTheme.bodyText2,
-        ),
-        SizedBox(height: kDefaultPadding / 2.5),
-        TextFormField(
-          decoration: inputDecoration.copyWith(hintText: nameField),
-          validator: (value) {
-            if (value.isEmpty) {
-              return kFieldNullError + nameField;
-            }
-            return null;
-          },
-          onChanged: onChanged,
-        ),
-      ],
-    );
-  }
-
-  Column _buildPhoneField() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          "Telephone Number",
-          style: Theme.of(context).textTheme.bodyText2,
-        ),
-        SizedBox(height: kDefaultPadding / 2.5),
-        TextFormField(
-          keyboardType: TextInputType.phone,
-          decoration: inputDecoration.copyWith(hintText: "XXX-XXX-XXXX"),
-          validator: (value) {
-            if (value.isEmpty) {
-              return kFieldNullError + "Telephone Number";
-            }
-
-            return null;
-          },
-          onChanged: (value) => setState(() => _phone = value),
-        ),
-      ],
-    );
-  }
-
-  Widget _buildDobField() {
-    return ValueListenableBuilder(
-      valueListenable: _dob,
-      builder: (context, value, child) {
-        return GestureDetector(
-          onTap: () {
+          PersonalInfoMethods.buildDobField(_dob, context, () {
             DatePicker.showDatePicker(context,
                 showTitleActions: true,
                 minTime: DateTime(1800, 1, 1),
@@ -213,39 +71,62 @@ class _SignUpFormState extends State<SignUpForm> {
                 ), onConfirm: (date) {
               _dob.value = date.toString().split(" ")[0];
             }, currentTime: DateTime.now(), locale: LocaleType.en);
-          },
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                "Date of Birth",
-                style: Theme.of(context).textTheme.bodyText2,
-              ),
-              SizedBox(height: kDefaultPadding / 2.5),
-              Container(
-                padding: EdgeInsets.all(10),
-                width: double.infinity,
-                // height: 20,
-                decoration: BoxDecoration(
-                  color: kLightGreyColor,
-                  borderRadius: BorderRadius.circular(kDefaultPadding),
-                ),
-                child: _dob.value == ''
-                    ? Text(
-                        "Select Date of Birth",
-                        style: TextStyle(color: kHintTextColor),
-                      )
-                    : Text(_dob.value),
-              )
-            ],
+          }),
+          SizedBox(height: kDefaultPadding),
+          AccountMethods.buildEmailField(
+            context,
+            (value) => setState(() => _email = value),
           ),
-        );
-      },
+          SizedBox(height: kDefaultPadding),
+          PersonalInfoMethods.buildGeneralField(
+            'Username',
+            (value) => setState(() => _username = value),
+            null,
+            context,
+          ),
+          SizedBox(height: kDefaultPadding),
+          AccountMethods.buildPasswordField(
+            context,
+            (value) => setState(() => _password = value),
+          ),
+          SizedBox(height: kDefaultPadding),
+          AccountMethods.buildConfirmedPasswordField(
+              context, (value) => setState(() => _confirmedPass = value),
+              (value) {
+            if (value.isEmpty) {
+              return kPassNullError;
+            }
+            if (_password != _confirmedPass) {
+              return kMatchPassError;
+            }
+            return null;
+          }),
+          SizedBox(height: kDefaultPadding * 2),
+          CustomBtn(
+            boxColor: kGreenColor,
+            text: "Confirm",
+            textColor: Colors.white,
+            onPressed: () {
+              if (_formKey.currentState.validate()) {
+                // TODO: Store values in the model
+                currentUser = User(
+                  firstname: _firstname,
+                  lastname: _lastname,
+                  gender: _gender.toString(),
+                  dob: _dob.value,
+                  phone: _phone,
+                );
+                Navigator.pushNamed(context, SignUpSuccessScreen.routeName);
+              }
+            },
+          ),
+          SizedBox(height: kDefaultPadding),
+        ],
+      ),
     );
   }
 
   Row _buildGenderRadio() {
-    GenderOption _gender = GenderOption.male;
     return Row(
       children: [
         Text(
