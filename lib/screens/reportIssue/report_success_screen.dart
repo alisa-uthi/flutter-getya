@@ -10,6 +10,7 @@ class ReportSucessScreen extends StatelessWidget {
     return Scaffold(
       endDrawer: CustomDrawer(),
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Text(
           "Report Issues",
           style: Theme.of(context).textTheme.bodyText1,

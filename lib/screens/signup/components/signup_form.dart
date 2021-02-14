@@ -16,8 +16,9 @@ class SignUpForm extends StatefulWidget {
 
 class _SignUpFormState extends State<SignUpForm> {
   final _formKey = GlobalKey<FormState>();
-  String _firstname, _lastname, _address, _phone, _gender;
+  String _firstname, _lastname, _address, _phone;
   String _username, _email, _password, _confirmedPass;
+  String _gender = "Male";
   final ValueNotifier<String> _dob = ValueNotifier('');
 
   @override
@@ -116,7 +117,7 @@ class _SignUpFormState extends State<SignUpForm> {
                   dob: _dob.value,
                   phone: _phone,
                 );
-                Navigator.pushReplacementNamed(
+                Navigator.pushNamed(
                   context,
                   SignUpSuccessScreen.routeName,
                 );

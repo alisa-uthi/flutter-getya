@@ -49,7 +49,7 @@ class CustomDrawer extends StatelessWidget {
                 itemBuilder: (context, index) {
                   return GestureDetector(
                     onTap: () {
-                      Navigator.pushReplacementNamed(
+                      Navigator.pushNamed(
                         context,
                         routeNames[index],
                       );

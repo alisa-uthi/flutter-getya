@@ -9,6 +9,7 @@ class ShoppingCartScreen extends StatelessWidget {
     return Scaffold(
       endDrawer: CustomDrawer(),
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Text(
           "Shopping Cart",
           style: Theme.of(context).textTheme.bodyText1,

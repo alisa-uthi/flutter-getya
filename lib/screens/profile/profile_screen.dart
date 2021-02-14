@@ -18,6 +18,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
     return Scaffold(
       endDrawer: CustomDrawer(),
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Text(
           "Personal Information",
           style: Theme.of(context).textTheme.bodyText1,

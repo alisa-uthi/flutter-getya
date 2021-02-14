@@ -9,7 +9,9 @@ class AccountMethods {
       children: [
         Text(
           "Email",
-          style: Theme.of(context).textTheme.bodyText2,
+          style: Theme.of(context).textTheme.bodyText2.copyWith(
+                color: Colors.grey[500],
+              ),
         ),
         SizedBox(height: kDefaultPadding / 2.5),
         TextFormField(
@@ -36,7 +38,9 @@ class AccountMethods {
       children: [
         Text(
           "Password",
-          style: Theme.of(context).textTheme.bodyText2,
+          style: Theme.of(context).textTheme.bodyText2.copyWith(
+                color: Colors.grey[500],
+              ),
         ),
         SizedBox(height: kDefaultPadding / 2.5),
         TextFormField(
@@ -64,7 +68,9 @@ class AccountMethods {
       children: [
         Text(
           "Confirm Password",
-          style: Theme.of(context).textTheme.bodyText2,
+          style: Theme.of(context).textTheme.bodyText2.copyWith(
+                color: Colors.grey[500],
+              ),
         ),
         SizedBox(height: kDefaultPadding / 2.5),
         TextFormField(

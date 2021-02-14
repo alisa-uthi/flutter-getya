@@ -93,6 +93,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   AppBar buildAppBar() {
     return AppBar(
+      automaticallyImplyLeading: false,
       title: Container(
         child: TextFormField(
           decoration: inputDecoration.copyWith(

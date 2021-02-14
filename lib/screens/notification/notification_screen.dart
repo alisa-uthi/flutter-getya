@@ -10,6 +10,7 @@ class NotificationScreen extends StatelessWidget {
     return Scaffold(
       endDrawer: CustomDrawer(),
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Text(
           "Notification",
           style: Theme.of(context).textTheme.bodyText1,

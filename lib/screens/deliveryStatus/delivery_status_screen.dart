@@ -9,6 +9,7 @@ class DeliveryStatusScreen extends StatelessWidget {
     return Scaffold(
       endDrawer: CustomDrawer(),
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Text(
           "Delivery Status",
           style: Theme.of(context).textTheme.bodyText1,

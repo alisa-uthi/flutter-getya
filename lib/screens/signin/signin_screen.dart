@@ -13,7 +13,7 @@ class SignInScreen extends StatelessWidget {
       body: Container(
         padding: EdgeInsets.symmetric(
           horizontal: kDefaultPadding,
-          vertical: kDefaultPadding * 2,
+          vertical: kDefaultPadding * 1.5,
         ),
         width: double.infinity,
         child: SingleChildScrollView(
@@ -38,7 +38,7 @@ class SignInScreen extends StatelessWidget {
               SizedBox(height: kDefaultPadding),
               SignInForm(),
               SizedBox(height: kDefaultPadding),
-              _DividerWithText(),
+              buildDividerWithText(),
               SizedBox(height: kDefaultPadding),
               CustomBtn(
                 boxColor: kLightGreyColor,
@@ -54,7 +54,7 @@ class SignInScreen extends StatelessWidget {
     );
   }
 
-  Row _DividerWithText() {
+  Row buildDividerWithText() {
     return Row(children: <Widget>[
       Expanded(
         child: Divider(
