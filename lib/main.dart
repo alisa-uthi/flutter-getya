@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:getya/screens/reportIssue/report_issue_screen.dart';
+import 'package:getya/screens/signup/signup_screen.dart';
 import 'package:getya/screens/signup/signup_success_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:getya/screens/splash_screen.dart';
@@ -30,7 +31,7 @@ class MyApp extends StatelessWidget {
           bodyText2: TextStyle(fontSize: 16, color: Colors.black),
         ),
       ),
-      home: ReportIssueScreen(),
+      home: SignUpScreen(),
     );
   }
 }
