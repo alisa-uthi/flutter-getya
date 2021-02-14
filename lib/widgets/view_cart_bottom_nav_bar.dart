@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:getya/constants.dart';
+import 'package:getya/screens/shoppingCart/shopping_cart_screen.dart';
 
 class ViewCartBottomNavBar extends StatelessWidget {
   const ViewCartBottomNavBar({
@@ -10,7 +11,7 @@ class ViewCartBottomNavBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        // TODO: Navigate to shopping cart screen
+        Navigator.pushNamed(context, ShoppingCartScreen.routeName);
       },
       child: Container(
         width: double.infinity,

@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:getya/constants.dart';
+import 'package:getya/models/order.dart';
 import 'package:getya/models/product.dart';
-import 'file:///D:/Work_ICT/3rd%20YEAR_2020/Wireless/getya/lib/screens/productDetail/components/adjust_quantity_field.dart';
+import 'package:getya/screens/pharmacyProducts/pharmacy_products_screen.dart';
+import 'package:getya/screens/productDetail/components/adjust_quantity_field.dart';
+import 'package:getya/screens/productDetail/components/product_detail_form.dart';
 import 'package:getya/widgets/custom_btn.dart';
 import 'package:getya/widgets/custom_drawer.dart';
-import 'file:///D:/Work_ICT/3rd%20YEAR_2020/Wireless/getya/lib/screens/productDetail/components/product_detail_form.dart';
 
 class ProductDetailScreen extends StatefulWidget {
   static final routeName = '/pharmacy/product/detail';
@@ -103,7 +105,19 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
               textColor: Colors.white,
               boxColor: kGreenColor,
               onPressed: () {
-                // TODO: Add product to cart
+                if (tempProductsInOrder.containsKey(widget.product)) {
+                  tempProductsInOrder[widget.product] += _quantity;
+                } else {
+                  tempProductsInOrder[widget.product] = _quantity;
+                }
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => PharmacyProductsScreen(
+                      pharmacy: widget.product.pharmacy,
+                    ),
+                  ),
+                );
               },
             ),
           ],
