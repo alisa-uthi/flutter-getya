@@ -7,6 +7,7 @@ enum GenderOption { female, male, other }
 class PersonalInfoFields {
   static Column buildGeneralField(
       String nameField, Function onChanged, String text, BuildContext context) {
+    final node = FocusScope.of(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -19,6 +20,7 @@ class PersonalInfoFields {
         SizedBox(height: kDefaultPadding / 2.5),
         TextFormField(
           initialValue: text == null ? "" : text,
+          textInputAction: TextInputAction.next,
           decoration: inputDecoration.copyWith(hintText: nameField),
           validator: (value) {
             if (value.isEmpty) {
@@ -27,6 +29,7 @@ class PersonalInfoFields {
             return null;
           },
           onChanged: onChanged,
+          onEditingComplete: () => node.nextFocus(),
         ),
       ],
     );
@@ -34,6 +37,8 @@ class PersonalInfoFields {
 
   static Column buildPhoneField(
       String phone, Function onChange, BuildContext context) {
+    final node = FocusScope.of(context);
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -46,6 +51,7 @@ class PersonalInfoFields {
         SizedBox(height: kDefaultPadding / 2.5),
         TextFormField(
           keyboardType: TextInputType.phone,
+          textInputAction: TextInputAction.next,
           decoration: inputDecoration.copyWith(hintText: "Telephone Number"),
           initialValue: phone == null ? "" : phone,
           validator: (value) {
@@ -56,6 +62,7 @@ class PersonalInfoFields {
             return null;
           },
           onChanged: onChange,
+          onEditingComplete: () => node.nextFocus(),
         ),
       ],
     );

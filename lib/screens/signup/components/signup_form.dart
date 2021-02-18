@@ -134,6 +134,7 @@ class _SignUpFormState extends State<SignUpForm> {
         AccountFields.buildPasswordField(
           context,
           (value) => setState(() => _password = value),
+          true,
         ),
         SizedBox(height: kDefaultPadding),
         AccountFields.buildConfirmedPasswordField(

@@ -30,6 +30,7 @@ class _SignInFormState extends State<SignInForm> {
           AccountFields.buildPasswordField(
             context,
             (value) => setState(() => _password = value),
+            false,
           ),
           SizedBox(height: kDefaultPadding * 2),
           CustomBtn(

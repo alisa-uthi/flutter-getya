@@ -4,6 +4,7 @@ import '../constants.dart';
 
 class AccountFields {
   static Column buildEmailField(BuildContext context, Function onChange) {
+    final node = FocusScope.of(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -16,6 +17,7 @@ class AccountFields {
         SizedBox(height: kDefaultPadding / 2.5),
         TextFormField(
           keyboardType: TextInputType.emailAddress,
+          textInputAction: TextInputAction.next,
           decoration: inputDecoration.copyWith(hintText: "Email"),
           validator: (value) {
             if (value.isEmpty) {
@@ -27,12 +29,16 @@ class AccountFields {
             return null;
           },
           onChanged: onChange,
+          onEditingComplete: () => node.nextFocus(),
         ),
       ],
     );
   }
 
-  static Column buildPasswordField(BuildContext context, Function onChange) {
+  static Column buildPasswordField(
+      BuildContext context, Function onChange, bool needConfirm) {
+    final node = FocusScope.of(context);
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -45,6 +51,7 @@ class AccountFields {
         SizedBox(height: kDefaultPadding / 2.5),
         TextFormField(
           obscureText: true,
+          textInputAction: needConfirm ? TextInputAction.next : null,
           decoration: inputDecoration.copyWith(hintText: "Password"),
           validator: (value) {
             if (value.isEmpty) {
