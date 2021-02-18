@@ -11,7 +11,7 @@ class AccountFields {
         Text(
           "Email",
           style: Theme.of(context).textTheme.bodyText2.copyWith(
-                color: Colors.grey[500],
+                color: Colors.grey[700],
               ),
         ),
         SizedBox(height: kDefaultPadding / 2.5),
@@ -45,7 +45,7 @@ class AccountFields {
         Text(
           "Password",
           style: Theme.of(context).textTheme.bodyText2.copyWith(
-                color: Colors.grey[500],
+                color: Colors.grey[700],
               ),
         ),
         SizedBox(height: kDefaultPadding / 2.5),
@@ -76,7 +76,7 @@ class AccountFields {
         Text(
           "Confirm Password",
           style: Theme.of(context).textTheme.bodyText2.copyWith(
-                color: Colors.grey[500],
+                color: Colors.grey[700],
               ),
         ),
         SizedBox(height: kDefaultPadding / 2.5),

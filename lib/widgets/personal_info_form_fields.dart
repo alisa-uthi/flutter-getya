@@ -14,7 +14,7 @@ class PersonalInfoFields {
         Text(
           nameField,
           style: Theme.of(context).textTheme.bodyText2.copyWith(
-                color: Colors.grey[500],
+                color: Colors.grey[700],
               ),
         ),
         SizedBox(height: kDefaultPadding / 2.5),
@@ -45,7 +45,7 @@ class PersonalInfoFields {
         Text(
           "Telephone Number",
           style: Theme.of(context).textTheme.bodyText2.copyWith(
-                color: Colors.grey[500],
+                color: Colors.grey[700],
               ),
         ),
         SizedBox(height: kDefaultPadding / 2.5),
@@ -81,7 +81,7 @@ class PersonalInfoFields {
               Text(
                 "Date of Birth",
                 style: Theme.of(context).textTheme.bodyText2.copyWith(
-                      color: Colors.grey[500],
+                      color: Colors.grey[700],
                     ),
               ),
               SizedBox(height: kDefaultPadding / 2.5),

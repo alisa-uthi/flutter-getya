@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:getya/screens/destinationAddress/destination_screen.dart';
 import 'package:getya/screens/editProfile/edit_profile_screen.dart';
 import 'package:getya/screens/home/home_screen.dart';
 import 'package:getya/screens/pharmacyProducts/pharmacy_products_screen.dart';
@@ -43,7 +44,7 @@ class MyApp extends StatelessWidget {
           child: child,
         );
       },
-      home: SignInScreen(),
+      home: DestinationScreen(),
     );
   }
 }

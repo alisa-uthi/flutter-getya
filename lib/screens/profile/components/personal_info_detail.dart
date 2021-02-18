@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:getya/constants.dart';
 import 'package:getya/models/user.dart';
-import 'file:///D:/Work_ICT/3rd%20YEAR_2020/Wireless/getya/lib/screens/signin/signin_screen.dart';
+import 'package:getya/screens/signin/signin_screen.dart';
 import 'package:getya/widgets/custom_btn.dart';
 
 class PersonalInfoDetail extends StatelessWidget {
@@ -16,12 +16,14 @@ class PersonalInfoDetail extends StatelessWidget {
           SizedBox(height: kDefaultPadding / 2),
           _buildGeneralField(context, "Lastname", currentUser.lastname),
           SizedBox(height: kDefaultPadding / 2),
+          _buildGeneralField(context, "Address", currentUser.address),
+          SizedBox(height: kDefaultPadding / 2),
           _buildGeneralField(context, "Date of Birth", currentUser.dob),
           SizedBox(height: kDefaultPadding / 2),
           _buildGeneralField(context, "Gender", currentUser.gender),
           SizedBox(height: kDefaultPadding / 2),
           _buildGeneralField(context, "Phone number", currentUser.phone),
-          SizedBox(height: kDefaultPadding * 2),
+          SizedBox(height: kDefaultPadding * 1.5),
           CustomBtn(
             text: "Sign Out",
             textColor: Colors.white,
@@ -44,7 +46,7 @@ class PersonalInfoDetail extends StatelessWidget {
         Text(
           nameField,
           style: Theme.of(context).textTheme.bodyText2.copyWith(
-                color: Colors.grey[500],
+                color: Colors.grey[700],
               ),
         ),
         SizedBox(height: kDefaultPadding / 2.5),

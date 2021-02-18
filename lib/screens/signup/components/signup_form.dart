@@ -59,6 +59,7 @@ class _SignUpFormState extends State<SignUpForm> {
                   _gender,
                   _dob.value,
                   _phone,
+                  _address,
                 );
                 Navigator.pushNamed(
                   context,

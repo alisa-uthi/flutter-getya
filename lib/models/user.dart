@@ -6,6 +6,7 @@ class User {
   String dob;
   String gender;
   String phone;
+  String address;
 
   User({
     @required this.dob,
@@ -13,6 +14,7 @@ class User {
     @required this.gender,
     @required this.lastname,
     @required this.phone,
+    @required this.address,
   });
 
   static void signUp(
@@ -21,6 +23,7 @@ class User {
     String gender,
     String dob,
     String phone,
+    String address,
   ) {
     currentUser = User(
       firstname: firstname,
@@ -28,6 +31,7 @@ class User {
       gender: gender,
       dob: dob,
       phone: phone,
+      address: address,
     );
   }
 
@@ -44,6 +48,7 @@ class User {
     String gender,
     String dob,
     String phone,
+    String address,
   ) {
     currentUser = User(
       firstname: firstname,
@@ -51,6 +56,7 @@ class User {
       gender: gender,
       dob: dob,
       phone: phone,
+      address: address,
     );
   }
 }
@@ -61,4 +67,5 @@ User currentUser = User(
   gender: "Male",
   phone: "038-485-2394",
   dob: "1999-02-24",
+  address: "Kratum Lom, Salaya, Nakhorn Pathom",
 );

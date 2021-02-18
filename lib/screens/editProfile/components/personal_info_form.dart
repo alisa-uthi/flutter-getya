@@ -17,6 +17,7 @@ class _PersonalInfoFormState extends State<PersonalInfoForm> {
   String _lastname = currentUser.lastname;
   String _gender = currentUser.gender;
   String _phone = currentUser.phone;
+  String _address = currentUser.address;
   ValueNotifier<String> _dob = ValueNotifier(currentUser.dob);
 
   void _handleDatePicker() {
@@ -59,6 +60,13 @@ class _PersonalInfoFormState extends State<PersonalInfoForm> {
               context,
             ),
             SizedBox(height: kDefaultPadding / 2),
+            PersonalInfoFields.buildGeneralField(
+              "Address",
+              (value) => setState(() => _address = value),
+              _address,
+              context,
+            ),
+            SizedBox(height: kDefaultPadding / 2),
             PersonalInfoFields.buildDobField(
               _dob,
               context,
@@ -85,6 +93,7 @@ class _PersonalInfoFormState extends State<PersonalInfoForm> {
               lastname: _lastname,
               gender: _gender,
               phone: _phone,
+              address: _address,
             ),
             SizedBox(height: kDefaultPadding),
           ],

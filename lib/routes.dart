@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:getya/screens/deliveryStatus/delivery_status_screen.dart';
+import 'package:getya/screens/destinationAddress/destination_screen.dart';
 import 'package:getya/screens/editProfile/edit_profile_screen.dart';
 import 'package:getya/screens/home/home_screen.dart';
 import 'package:getya/screens/notification/notification_screen.dart';
@@ -30,4 +31,5 @@ final Map<String, WidgetBuilder> routes = {
   DeliveryStatusScreen.routeName: (context) => DeliveryStatusScreen(),
   ReportIssueScreen.routeName: (context) => ReportIssueScreen(),
   ReportSucessScreen.routeName: (context) => ReportSucessScreen(),
+  DestinationScreen.routeName: (context) => DestinationScreen(),
 };

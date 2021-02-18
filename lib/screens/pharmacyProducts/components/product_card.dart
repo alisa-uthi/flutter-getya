@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:getya/constants.dart';
 import 'package:getya/models/product.dart';
 import 'package:getya/screens/productDetail/product_detail_screen.dart';
+import 'package:getya/widgets/custom_small_btn.dart';
 
 class ProductCard extends StatelessWidget {
   final Product product;
@@ -37,25 +38,18 @@ class ProductCard extends StatelessWidget {
             ],
           ),
           Spacer(),
-          FlatButton(
-            child: Text("ADD"),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => ProductDetailScreen(
-                    product: product,
+          CustomSmallBtn(
+              text: "ADD",
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => ProductDetailScreen(
+                      product: product,
+                    ),
                   ),
-                ),
-              );
-            },
-            color: kGreenColor,
-            textColor: Colors.white,
-            minWidth: 30,
-            shape: new RoundedRectangleBorder(
-              borderRadius: new BorderRadius.circular(30),
-            ),
-          ),
+                );
+              }),
           SizedBox(width: kDefaultPadding / 2),
         ],
       ),
