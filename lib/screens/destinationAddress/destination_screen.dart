@@ -12,7 +12,6 @@ class DestinationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      endDrawer: CustomDrawer(),
       appBar: AppBar(
         title: Text(
           "Select Destination",

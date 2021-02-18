@@ -35,13 +35,12 @@ class _ListItemState extends State<ListItem> {
               flex: 1,
               child: Text(
                 widget.product.name,
-                style: Theme.of(context).textTheme.bodyText2,
+                style: Theme.of(context).textTheme.bodyText1,
                 overflow: TextOverflow.ellipsis,
               ),
             ),
             Expanded(
               child: AdjustQuantityField(
-                iconSize: 15,
                 quantity: widget.quantity,
                 increaseQuan: () {
                   setState(() {
@@ -64,9 +63,9 @@ class _ListItemState extends State<ListItem> {
             ),
             Text(
               "${totalPrice.value.toInt()} THB",
-              style: Theme.of(context).textTheme.bodyText2,
+              style: Theme.of(context).textTheme.bodyText1,
             ),
-            SizedBox(width: 10),
+            SizedBox(width: 3),
             IconButton(
               icon: Icon(
                 Icons.delete,
@@ -79,7 +78,7 @@ class _ListItemState extends State<ListItem> {
           ],
         ),
         Divider(
-          color: Colors.grey[600],
+          color: Colors.black,
         ),
       ],
     );

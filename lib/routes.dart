@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:getya/screens/confirmOrder/confirm_order_screen.dart';
 import 'package:getya/screens/deliveryStatus/delivery_status_screen.dart';
 import 'package:getya/screens/destinationAddress/destination_screen.dart';
 import 'package:getya/screens/editProfile/edit_profile_screen.dart';
 import 'package:getya/screens/home/home_screen.dart';
 import 'package:getya/screens/notification/notification_screen.dart';
+import 'package:getya/screens/orderComplete/order_complete.dart';
 import 'package:getya/screens/pharmacyProducts/pharmacy_products_screen.dart';
 import 'package:getya/screens/productDetail/product_detail_screen.dart';
 import 'package:getya/screens/profile/profile_screen.dart';
@@ -32,4 +34,6 @@ final Map<String, WidgetBuilder> routes = {
   ReportIssueScreen.routeName: (context) => ReportIssueScreen(),
   ReportSucessScreen.routeName: (context) => ReportSucessScreen(),
   DestinationScreen.routeName: (context) => DestinationScreen(),
+  ConfirmOrderScreen.routeName: (context) => ConfirmOrderScreen(),
+  OrderCompleteScreen.routeName: (context) => OrderCompleteScreen(),
 };

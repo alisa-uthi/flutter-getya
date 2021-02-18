@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:getya/constants.dart';
+import 'package:getya/controller/order_controller.dart';
 import 'package:getya/models/order.dart';
 import 'package:getya/models/product.dart';
+import 'package:getya/screens/destinationAddress/destination_screen.dart';
 import 'package:getya/screens/shoppingCart/components/list_item.dart';
 import 'package:getya/widgets/custom_btn.dart';
 import 'package:getya/widgets/custom_drawer.dart';
@@ -18,6 +20,7 @@ class ShoppingCartScreen extends StatefulWidget {
 class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
   ValueNotifier<Map> _productInOrder = ValueNotifier(tempProductsInOrder);
   double _orderTotalPrice = 0.0;
+  OrderController _orderController = OrderController();
 
   void computeTotalPrice() {
     double totalPrice = 0.0;
@@ -86,8 +89,9 @@ class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
                   text: "Confirm",
                   textColor: Colors.white,
                   boxColor: kGreenColor,
-                  onPressed: () {
-                    //TODO: Add to order, navigate to next screen
+                  onPressed: () async {
+                    await _orderController.createNewOrder(_orderTotalPrice);
+                    Navigator.pushNamed(context, DestinationScreen.routeName);
                   },
                 ),
               ],

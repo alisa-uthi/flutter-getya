@@ -4,14 +4,12 @@ class AdjustQuantityField extends StatelessWidget {
   final Function increaseQuan;
   final Function decreaseQuan;
   final int quantity;
-  final double iconSize;
 
   const AdjustQuantityField({
     Key key,
     this.increaseQuan,
     this.decreaseQuan,
     this.quantity,
-    this.iconSize,
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -20,7 +18,7 @@ class AdjustQuantityField extends StatelessWidget {
         IconButton(
           icon: Icon(
             Icons.remove_rounded,
-            size: iconSize ?? 22,
+            size: 22,
           ),
           onPressed: decreaseQuan,
           highlightColor: Colors.transparent,
@@ -28,14 +26,12 @@ class AdjustQuantityField extends StatelessWidget {
         ),
         Text(
           "$quantity",
-          style: iconSize == null
-              ? Theme.of(context).textTheme.bodyText1
-              : Theme.of(context).textTheme.bodyText2,
+          style: Theme.of(context).textTheme.bodyText1,
         ),
         IconButton(
           icon: Icon(
             Icons.add,
-            size: iconSize ?? 22,
+            size: 22,
           ),
           onPressed: increaseQuan,
           highlightColor: Colors.transparent,

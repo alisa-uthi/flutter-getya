@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:getya/models/order.dart';
+import 'package:getya/screens/confirmOrder/confirm_order_screen.dart';
 import 'package:getya/widgets/custom_btn.dart';
 import 'package:getya/widgets/custom_small_btn.dart';
 
@@ -25,7 +27,7 @@ class TotalCostSection extends StatelessWidget {
               style: Theme.of(context).textTheme.bodyText1,
               children: [
                 TextSpan(
-                  text: "${190} THB",
+                  text: "${currentOrder.totalPrice.toInt().toString()} THB",
                   style: Theme.of(context).textTheme.headline1,
                 )
               ],
@@ -35,9 +37,7 @@ class TotalCostSection extends StatelessWidget {
             text: "Next",
             onPressed: () {
               // TODO: Save destination
-              // Navigator.pushNamed(
-              //   context,
-              // );
+              Navigator.pushNamed(context, ConfirmOrderScreen.routeName);
             },
           ),
         ],

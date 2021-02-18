@@ -17,6 +17,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
     return Scaffold(
       endDrawer: CustomDrawer(),
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: Text(
           "Personal Information",
           style: Theme.of(context).textTheme.bodyText1,

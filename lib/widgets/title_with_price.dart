@@ -16,11 +16,11 @@ class TitleWithPrice extends StatelessWidget {
       children: [
         Text(
           title,
-          style: Theme.of(context).textTheme.bodyText1,
+          style: Theme.of(context).textTheme.headline1,
         ),
         Text(
           "${price.toInt()} THB",
-          style: Theme.of(context).textTheme.bodyText1,
+          style: Theme.of(context).textTheme.headline1,
         ),
       ],
     );

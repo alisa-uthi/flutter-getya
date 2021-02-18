@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:getya/screens/confirmOrder/confirm_order_screen.dart';
 import 'package:getya/screens/destinationAddress/destination_screen.dart';
 import 'package:getya/screens/editProfile/edit_profile_screen.dart';
 import 'package:getya/screens/home/home_screen.dart';
@@ -44,7 +45,7 @@ class MyApp extends StatelessWidget {
           child: child,
         );
       },
-      home: DestinationScreen(),
+      home: HomeScreen(),
     );
   }
 }

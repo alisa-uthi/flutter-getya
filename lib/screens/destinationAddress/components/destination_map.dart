@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:getya/widgets/section_title.dart';
 
 class DestinationMap extends StatelessWidget {
   @override
@@ -6,11 +7,8 @@ class DestinationMap extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          "Destination",
-          style: Theme.of(context).textTheme.headline1,
-        ),
-        SizedBox(height: 10),
+        SectionTitle(title: "Destination"),
+        SizedBox(height: 5),
         Image.asset("assets/images/destination_address.png"),
         SizedBox(height: 10),
         Center(
