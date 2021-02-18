@@ -23,87 +23,29 @@ class _SignUpFormState extends State<SignUpForm> {
   final ValueNotifier<String> _dob = ValueNotifier('');
   final UserController _userController = UserController();
 
+  void _handleDatePicker() {
+    DatePicker.showDatePicker(context,
+        showTitleActions: true,
+        minTime: DateTime(1800, 1, 1),
+        maxTime: DateTime(2020, 12, 31),
+        theme: DatePickerTheme(
+          itemStyle: TextStyle(
+              color: Colors.black, fontWeight: FontWeight.bold, fontSize: 18),
+          doneStyle: TextStyle(color: Colors.black, fontSize: 16),
+        ), onConfirm: (date) {
+      _dob.value = date.toString().split(" ")[0];
+    }, currentTime: DateTime.now(), locale: LocaleType.en);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Form(
       key: _formKey,
       child: Column(
         children: [
-          PersonalInfoFields.buildGeneralField(
-            'Name',
-            (value) => setState(() => _firstname = value),
-            null,
-            context,
-          ),
+          buildPersonalFields(),
           SizedBox(height: kDefaultPadding),
-          PersonalInfoFields.buildGeneralField(
-            'Surname',
-            (value) => setState(() => _lastname = value),
-            null,
-            context,
-          ),
-          SizedBox(height: kDefaultPadding),
-          PersonalInfoFields.buildGeneralField(
-            'Address',
-            (value) => setState(() => _address = value),
-            null,
-            context,
-          ),
-          SizedBox(height: kDefaultPadding),
-          PersonalInfoFields.buildPhoneField(
-            null,
-            (value) => setState(() => _phone = value),
-            context,
-          ),
-          SizedBox(height: kDefaultPadding),
-          GenderRadio(
-            callBack: (value) => setState(() => _gender = value),
-          ),
-          SizedBox(height: kDefaultPadding),
-          PersonalInfoFields.buildDobField(_dob, context, () {
-            DatePicker.showDatePicker(context,
-                showTitleActions: true,
-                minTime: DateTime(1800, 1, 1),
-                maxTime: DateTime(2020, 12, 31),
-                theme: DatePickerTheme(
-                  itemStyle: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 18),
-                  doneStyle: TextStyle(color: Colors.black, fontSize: 16),
-                ), onConfirm: (date) {
-              _dob.value = date.toString().split(" ")[0];
-            }, currentTime: DateTime.now(), locale: LocaleType.en);
-          }),
-          SizedBox(height: kDefaultPadding),
-          AccountFields.buildEmailField(
-            context,
-            (value) => setState(() => _email = value),
-          ),
-          SizedBox(height: kDefaultPadding),
-          PersonalInfoFields.buildGeneralField(
-            'Username',
-            (value) => setState(() => _username = value),
-            null,
-            context,
-          ),
-          SizedBox(height: kDefaultPadding),
-          AccountFields.buildPasswordField(
-            context,
-            (value) => setState(() => _password = value),
-          ),
-          SizedBox(height: kDefaultPadding),
-          AccountFields.buildConfirmedPasswordField(
-              context, (value) => setState(() => _confirmedPass = value),
-              (value) {
-            if (value.isEmpty) {
-              return kPassNullError;
-            }
-            if (_password != _confirmedPass) {
-              return kMatchPassError;
-            }
-            return null;
-          }),
+          buildAccountFields(),
           SizedBox(height: kDefaultPadding * 2),
           CustomBtn(
             boxColor: kGreenColor,
@@ -128,6 +70,84 @@ class _SignUpFormState extends State<SignUpForm> {
           SizedBox(height: kDefaultPadding),
         ],
       ),
+    );
+  }
+
+  Widget buildPersonalFields() {
+    return Column(
+      children: [
+        PersonalInfoFields.buildGeneralField(
+          'Name',
+          (value) => setState(() => _firstname = value),
+          null,
+          context,
+        ),
+        SizedBox(height: kDefaultPadding),
+        PersonalInfoFields.buildGeneralField(
+          'Surname',
+          (value) => setState(() => _lastname = value),
+          null,
+          context,
+        ),
+        SizedBox(height: kDefaultPadding),
+        PersonalInfoFields.buildGeneralField(
+          'Address',
+          (value) => setState(() => _address = value),
+          null,
+          context,
+        ),
+        SizedBox(height: kDefaultPadding),
+        PersonalInfoFields.buildPhoneField(
+          null,
+          (value) => setState(() => _phone = value),
+          context,
+        ),
+        SizedBox(height: kDefaultPadding),
+        GenderRadio(
+          callBack: (value) => setState(() => _gender = value),
+        ),
+        SizedBox(height: kDefaultPadding),
+        PersonalInfoFields.buildDobField(
+          _dob,
+          context,
+          () => _handleDatePicker(),
+        ),
+      ],
+    );
+  }
+
+  Widget buildAccountFields() {
+    return Column(
+      children: [
+        AccountFields.buildEmailField(
+          context,
+          (value) => setState(() => _email = value),
+        ),
+        SizedBox(height: kDefaultPadding),
+        PersonalInfoFields.buildGeneralField(
+          'Username',
+          (value) => setState(() => _username = value),
+          null,
+          context,
+        ),
+        SizedBox(height: kDefaultPadding),
+        AccountFields.buildPasswordField(
+          context,
+          (value) => setState(() => _password = value),
+        ),
+        SizedBox(height: kDefaultPadding),
+        AccountFields.buildConfirmedPasswordField(
+            context, (value) => setState(() => _confirmedPass = value),
+            (value) {
+          if (value.isEmpty) {
+            return kPassNullError;
+          }
+          if (_password != _confirmedPass) {
+            return kMatchPassError;
+          }
+          return null;
+        }),
+      ],
     );
   }
 }

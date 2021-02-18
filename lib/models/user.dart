@@ -37,6 +37,22 @@ class User {
   ) {
     print(email + " " + password);
   }
+
+  static void updateUserInfo(
+    String firstname,
+    String lastname,
+    String gender,
+    String dob,
+    String phone,
+  ) {
+    currentUser = User(
+      firstname: firstname,
+      lastname: lastname,
+      gender: gender,
+      dob: dob,
+      phone: phone,
+    );
+  }
 }
 
 User currentUser = User(

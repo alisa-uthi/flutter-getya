@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:getya/constants.dart';
-import 'file:///D:/Work_ICT/3rd%20YEAR_2020/Wireless/getya/lib/screens/signup/components/signup_form.dart';
+import 'package:getya/screens/signup/components/signup_form.dart';
 
 class SignUpScreen extends StatelessWidget {
   static final routeName = '/signup';

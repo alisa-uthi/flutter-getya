@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:getya/constants.dart';
 import 'package:getya/models/pharmacy.dart';
-import 'file:///D:/Work_ICT/3rd%20YEAR_2020/Wireless/getya/lib/screens/pharmacyProducts/pharmacy_products_screen.dart';
+import 'package:getya/screens/home/components/time_distance_section.dart';
+import 'package:getya/screens/pharmacyProducts/pharmacy_products_screen.dart';
 
 class PharmacyCard extends StatelessWidget {
   const PharmacyCard({
@@ -12,17 +13,18 @@ class PharmacyCard extends StatelessWidget {
 
   final Pharmacy pharmacy;
 
+  void _handleTapCard(BuildContext context) {
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => PharmacyProductsScreen(pharmacy: pharmacy),
+        ));
+  }
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        // TODO: Navigate to detail screen
-        Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => PharmacyProductsScreen(pharmacy: pharmacy),
-            ));
-      },
+      onTap: () => _handleTapCard(context),
       child: Container(
         width: double.infinity,
         height: 80,
@@ -51,21 +53,15 @@ class PharmacyCard extends StatelessWidget {
               ),
               child: Column(
                 children: [
-                  Row(
-                    children: [
-                      Icon(Icons.car_rental),
-                      SizedBox(width: 3),
-                      Text("1 Km"),
-                    ],
+                  TimeAndDistanceSection(
+                    icon: Icons.car_rental,
+                    text: "1 Km",
                   ),
                   SizedBox(height: 5),
-                  Row(
-                    children: [
-                      Icon(Icons.lock_clock),
-                      SizedBox(width: 3),
-                      Text(pharmacy.startTime + "\n" + pharmacy.endTime),
-                    ],
-                  )
+                  TimeAndDistanceSection(
+                    icon: Icons.lock_clock,
+                    text: pharmacy.startTime + "\n" + pharmacy.endTime,
+                  ),
                 ],
               ),
             ),

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:getya/constants.dart';
 import 'package:getya/models/product.dart';
-import 'file:///D:/Work_ICT/3rd%20YEAR_2020/Wireless/getya/lib/screens/productDetail/product_detail_screen.dart';
+import 'package:getya/screens/productDetail/product_detail_screen.dart';
 
 class ProductCard extends StatelessWidget {
   final Product product;

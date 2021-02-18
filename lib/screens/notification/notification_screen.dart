@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:getya/constants.dart';
+import 'package:getya/screens/notification/components/notification_tile.dart';
 import 'package:getya/widgets/custom_drawer.dart';
 
 class NotificationScreen extends StatelessWidget {
@@ -24,47 +25,17 @@ class NotificationScreen extends StatelessWidget {
         ),
         child: Column(
           children: [
-            Align(
-              alignment: Alignment.topRight,
-              child: Text(
-                "10 minutes ago",
-                style: TextStyle(color: Colors.grey[600], fontSize: 14),
-              ),
+            NotificationTile(
+              icon: Icons.watch_later,
+              time: "10 minutes ago",
+              message: "Your order is in process",
+              iconColor: Colors.amber,
             ),
-            ListTile(
-              dense: true,
-              title: Text("Your order is in process",
-                  style: Theme.of(context).textTheme.bodyText1),
-              leading: Icon(
-                Icons.watch_later,
-                color: Colors.amber,
-                size: 40,
-              ),
-            ),
-            Divider(
-              color: Colors.grey[700],
-              thickness: 2,
-            ),
-            Align(
-              alignment: Alignment.topRight,
-              child: Text(
-                "10 minutes ago",
-                style: TextStyle(color: Colors.grey[600], fontSize: 14),
-              ),
-            ),
-            ListTile(
-              dense: true,
-              title: Text("Successfully delivered Second shop)",
-                  style: Theme.of(context).textTheme.bodyText1),
-              leading: Icon(
-                Icons.done,
-                color: kGreenColor,
-                size: 40,
-              ),
-            ),
-            Divider(
-              color: Colors.grey[700],
-              thickness: 2,
+            NotificationTile(
+              icon: Icons.done,
+              time: "10 minutes ago",
+              message: "Successfully delivered Second shop",
+              iconColor: kGreenColor,
             ),
           ],
         ),

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:getya/constants.dart';
-import 'package:getya/screens/editProfile/edit_profile_screen.dart';
 import 'package:getya/widgets/custom_drawer.dart';
 
+import 'components/edit_section.dart';
 import 'components/personal_info_detail.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -31,29 +31,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Align(
-                alignment: Alignment.bottomRight,
-                child: FlatButton.icon(
-                  icon: Icon(
-                    Icons.edit,
-                    color: kGreenColor,
-                  ),
-                  label: Text(
-                    "Edit",
-                    style: Theme.of(context)
-                        .textTheme
-                        .bodyText2
-                        .copyWith(color: kGreenColor),
-                  ),
-                  onPressed: () {
-                    Navigator.pushNamed(
-                      context,
-                      EditProfileScreen.routeName,
-                    );
-                  },
-                  height: 10,
-                ),
-              ),
+              EditSection(),
               Center(
                 child: CircleAvatar(
                   backgroundImage: AssetImage(

@@ -24,4 +24,21 @@ class UserController {
   ) async {
     User.signIn(email, password);
   }
+
+  Future<User> updateUserInfo(
+    String firstname,
+    String lastname,
+    String gender,
+    String dob,
+    String phone,
+  ) async {
+    User.updateUserInfo(
+      firstname,
+      lastname,
+      gender,
+      dob,
+      phone,
+    );
+    return currentUser;
+  }
 }

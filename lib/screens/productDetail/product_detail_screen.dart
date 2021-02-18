@@ -3,7 +3,7 @@ import 'package:getya/constants.dart';
 import 'package:getya/controller/order_controller.dart';
 import 'package:getya/models/product.dart';
 import 'package:getya/screens/pharmacyProducts/pharmacy_products_screen.dart';
-import 'package:getya/screens/productDetail/components/product_detail_form.dart';
+import 'package:getya/screens/productDetail/components/detail_list.dart';
 import 'package:getya/widgets/adjust_quantity_field.dart';
 import 'package:getya/widgets/custom_btn.dart';
 import 'package:getya/widgets/custom_drawer.dart';
@@ -55,25 +55,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
               ),
             ),
             SizedBox(height: kDefaultPadding),
-            ProductDetailForm(
-              title: "Name",
-              detail: widget.product.name,
-            ),
-            SizedBox(height: kDefaultPadding / 2),
-            ProductDetailForm(
-              title: "Description",
-              detail: widget.product.description,
-            ),
-            SizedBox(height: kDefaultPadding / 2),
-            ProductDetailForm(
-              title: "Pharmacy",
-              detail: widget.product.pharmacy.name,
-            ),
-            SizedBox(height: kDefaultPadding / 2),
-            ProductDetailForm(
-              title: "Price/Unit",
-              detail: "${widget.product.price} THB",
-            ),
+            DetailList(product: widget.product),
             SizedBox(height: kDefaultPadding * 2),
             Divider(
               color: Colors.black,
