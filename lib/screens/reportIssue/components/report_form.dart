@@ -56,6 +56,7 @@ class _ReportFormState extends State<ReportForm> {
   }
 
   Column buildProblemField(BuildContext context) {
+    final node = FocusScope.of(context);
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -66,6 +67,7 @@ class _ReportFormState extends State<ReportForm> {
         SizedBox(height: kDefaultPadding / 2.5),
         TextFormField(
           decoration: inputDecoration.copyWith(hintText: "Problems"),
+          textInputAction: TextInputAction.next,
           validator: (value) {
             if (value.isEmpty) {
               return "The problem must not be empty";
@@ -73,12 +75,15 @@ class _ReportFormState extends State<ReportForm> {
             return null;
           },
           onChanged: (value) => setState(() => _problem = value),
+          onEditingComplete: () => node.nextFocus(),
         ),
       ],
     );
   }
 
   Column buildDetailField(BuildContext context) {
+    final node = FocusScope.of(context);
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -91,9 +96,11 @@ class _ReportFormState extends State<ReportForm> {
           decoration: inputDecoration.copyWith(
             hintText: "Details",
           ),
+          textInputAction: TextInputAction.done,
           minLines: 5,
           maxLines: 7,
           onChanged: (value) => setState(() => _detail = value),
+          onEditingComplete: () => node.unfocus(),
         ),
       ],
     );

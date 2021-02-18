@@ -3,6 +3,7 @@ import 'package:getya/screens/deliveryStatus/delivery_status_screen.dart';
 import 'package:getya/screens/home/home_screen.dart';
 import 'package:getya/screens/notification/notification_screen.dart';
 import 'package:getya/screens/profile/profile_screen.dart';
+import 'package:getya/screens/reportIssue/report_issue_screen.dart';
 import 'package:getya/screens/shoppingCart/shopping_cart_screen.dart';
 import 'package:getya/screens/signin/signin_screen.dart';
 import 'package:getya/widgets/custom_drawer_header.dart';
@@ -14,6 +15,7 @@ class CustomDrawer extends StatelessWidget {
     Icon(Icons.directions_car, size: 30),
     Icon(Icons.notifications, size: 30),
     Icon(Icons.person, size: 30),
+    Icon(Icons.report_problem, size: 30),
     Icon(Icons.logout, size: 30),
   ];
 
@@ -23,6 +25,7 @@ class CustomDrawer extends StatelessWidget {
     "Delivery Status",
     "Notification",
     "Profile",
+    "Report Issue",
     "Sign Out",
   ];
 
@@ -32,6 +35,7 @@ class CustomDrawer extends StatelessWidget {
     DeliveryStatusScreen.routeName,
     NotificationScreen.routeName,
     ProfileScreen.routeName,
+    ReportIssueScreen.routeName,
     SignInScreen.routeName,
   ];
 
@@ -57,7 +61,7 @@ class CustomDrawer extends StatelessWidget {
                     child: ListTile(
                       leading: icons[index],
                       title: Text(titles[index]),
-                      trailing: index != 5 ? Icon(Icons.arrow_forward) : null,
+                      trailing: index != 6 ? Icon(Icons.arrow_forward) : null,
                     ),
                   );
                 },
