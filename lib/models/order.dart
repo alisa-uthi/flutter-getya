@@ -13,6 +13,14 @@ class Order {
     this.products,
     this.user,
   });
+
+  static void addProductToCart(Product product, int quantity) {
+    if (tempProductsInOrder.containsKey(product)) {
+      tempProductsInOrder[product] += quantity;
+    } else {
+      tempProductsInOrder[product] = quantity;
+    }
+  }
 }
 
 // For mock up

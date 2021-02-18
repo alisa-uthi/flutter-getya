@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:getya/constants.dart';
-import 'package:getya/models/order.dart';
+import 'package:getya/controller/order_controller.dart';
 import 'package:getya/models/product.dart';
 import 'package:getya/screens/pharmacyProducts/pharmacy_products_screen.dart';
-import 'package:getya/screens/productDetail/components/adjust_quantity_field.dart';
 import 'package:getya/screens/productDetail/components/product_detail_form.dart';
+import 'package:getya/widgets/adjust_quantity_field.dart';
 import 'package:getya/widgets/custom_btn.dart';
 import 'package:getya/widgets/custom_drawer.dart';
 
@@ -20,6 +20,7 @@ class ProductDetailScreen extends StatefulWidget {
 
 class _ProductDetailScreenState extends State<ProductDetailScreen> {
   int _quantity = 1;
+  final OrderController orderController = OrderController();
 
   @override
   Widget build(BuildContext context) {
@@ -105,11 +106,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
               textColor: Colors.white,
               boxColor: kGreenColor,
               onPressed: () {
-                if (tempProductsInOrder.containsKey(widget.product)) {
-                  tempProductsInOrder[widget.product] += _quantity;
-                } else {
-                  tempProductsInOrder[widget.product] = _quantity;
-                }
+                orderController.addProductToCart(widget.product, _quantity);
                 Navigator.push(
                   context,
                   MaterialPageRoute(

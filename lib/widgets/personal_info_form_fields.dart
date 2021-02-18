@@ -4,7 +4,7 @@ import '../constants.dart';
 
 enum GenderOption { female, male, other }
 
-class PersonalInfoMethods {
+class PersonalInfoFields {
   static Column buildGeneralField(
       String nameField, Function onChanged, String text, BuildContext context) {
     return Column(

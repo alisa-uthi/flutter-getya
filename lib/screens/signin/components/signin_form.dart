@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:getya/constants.dart';
-import 'package:getya/methods/account_method.dart';
-import 'file:///D:/Work_ICT/3rd%20YEAR_2020/Wireless/getya/lib/screens/home/home_screen.dart';
+import 'package:getya/controller/user_controller.dart';
+import 'package:getya/screens/home/home_screen.dart';
+import 'package:getya/widgets/account_form_fields.dart';
 import 'package:getya/widgets/custom_btn.dart';
 
 class SignInForm extends StatefulWidget {
@@ -13,6 +14,7 @@ class _SignInFormState extends State<SignInForm> {
   String _email = '';
   String _password = '';
   final _formKey = GlobalKey<FormState>();
+  final UserController _userController = UserController();
 
   @override
   Widget build(BuildContext context) {
@@ -20,12 +22,12 @@ class _SignInFormState extends State<SignInForm> {
       key: _formKey,
       child: Column(
         children: [
-          AccountMethods.buildEmailField(
+          AccountFields.buildEmailField(
             context,
             (value) => setState(() => _email = value),
           ),
           SizedBox(height: kDefaultPadding),
-          AccountMethods.buildPasswordField(
+          AccountFields.buildPasswordField(
             context,
             (value) => setState(() => _password = value),
           ),
@@ -36,7 +38,7 @@ class _SignInFormState extends State<SignInForm> {
             textColor: Colors.white,
             onPressed: () {
               if (_formKey.currentState.validate()) {
-                // TODO: Store values in the model
+                _userController.signIn(_email, _password);
                 Navigator.pushNamed(context, HomeScreen.routeName);
               }
             },

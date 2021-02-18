@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:getya/constants.dart';
 import 'package:getya/models/product.dart';
-import 'package:getya/screens/productDetail/components/adjust_quantity_field.dart';
+import 'package:getya/widgets/adjust_quantity_field.dart';
 
 class ListItem extends StatefulWidget {
   Product product;

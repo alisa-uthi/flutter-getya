@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
-import 'package:getya/methods/personal_info_methods.dart';
 import 'package:getya/models/user.dart';
 import 'package:getya/widgets/custom_btn.dart';
+import 'package:getya/widgets/personal_info_form_fields.dart';
 
 import '../../../constants.dart';
 import '../../profile/profile_screen.dart';
@@ -29,21 +29,21 @@ class _PersonalInfoFormState extends State<PersonalInfoForm> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            PersonalInfoMethods.buildGeneralField(
+            PersonalInfoFields.buildGeneralField(
               "Firstname",
               (value) => setState(() => _firstname = value),
               _firstname,
               context,
             ),
             SizedBox(height: kDefaultPadding / 2),
-            PersonalInfoMethods.buildGeneralField(
+            PersonalInfoFields.buildGeneralField(
               "Lastname",
               (value) => setState(() => _lastname = value),
               _lastname,
               context,
             ),
             SizedBox(height: kDefaultPadding / 2),
-            PersonalInfoMethods.buildDobField(_dob, context, () {
+            PersonalInfoFields.buildDobField(_dob, context, () {
               DatePicker.showDatePicker(context,
                   showTitleActions: true,
                   minTime: DateTime(1800, 1, 1),
@@ -60,14 +60,14 @@ class _PersonalInfoFormState extends State<PersonalInfoForm> {
               }, currentTime: DateTime.now(), locale: LocaleType.en);
             }),
             SizedBox(height: kDefaultPadding / 2),
-            PersonalInfoMethods.buildGeneralField(
+            PersonalInfoFields.buildGeneralField(
               "Gender",
               (value) => setState(() => _gender = value),
               _gender,
               context,
             ),
             SizedBox(height: kDefaultPadding / 2),
-            PersonalInfoMethods.buildPhoneField(
+            PersonalInfoFields.buildPhoneField(
               _phone,
               (value) => setState(() => _phone = value),
               context,

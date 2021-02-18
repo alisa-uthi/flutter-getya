@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
           bodyText2: TextStyle(fontSize: 16, color: Colors.black),
         ),
       ),
-      home: HomeScreen(),
+      home: SplashScreen(),
     );
   }
 }

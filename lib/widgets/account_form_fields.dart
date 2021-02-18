@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../constants.dart';
 
-class AccountMethods {
+class AccountFields {
   static Column buildEmailField(BuildContext context, Function onChange) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,

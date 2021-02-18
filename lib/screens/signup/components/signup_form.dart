@@ -1,13 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:getya/constants.dart';
-import 'package:getya/methods/account_method.dart';
-import 'package:getya/methods/personal_info_methods.dart';
+import 'package:getya/controller/user_controller.dart';
 import 'package:getya/models/user.dart';
 import 'package:getya/screens/signup/components/gender_radio.dart';
 import 'package:getya/screens/signup/signup_success_screen.dart';
+import 'package:getya/widgets/account_form_fields.dart';
 import 'package:getya/widgets/custom_btn.dart';
 import 'package:flutter_datetime_picker/flutter_datetime_picker.dart';
+import 'package:getya/widgets/personal_info_form_fields.dart';
 
 class SignUpForm extends StatefulWidget {
   @override
@@ -20,6 +21,7 @@ class _SignUpFormState extends State<SignUpForm> {
   String _username, _email, _password, _confirmedPass;
   String _gender = "Male";
   final ValueNotifier<String> _dob = ValueNotifier('');
+  final UserController _userController = UserController();
 
   @override
   Widget build(BuildContext context) {
@@ -27,28 +29,28 @@ class _SignUpFormState extends State<SignUpForm> {
       key: _formKey,
       child: Column(
         children: [
-          PersonalInfoMethods.buildGeneralField(
+          PersonalInfoFields.buildGeneralField(
             'Name',
             (value) => setState(() => _firstname = value),
             null,
             context,
           ),
           SizedBox(height: kDefaultPadding),
-          PersonalInfoMethods.buildGeneralField(
+          PersonalInfoFields.buildGeneralField(
             'Surname',
             (value) => setState(() => _lastname = value),
             null,
             context,
           ),
           SizedBox(height: kDefaultPadding),
-          PersonalInfoMethods.buildGeneralField(
+          PersonalInfoFields.buildGeneralField(
             'Address',
             (value) => setState(() => _address = value),
             null,
             context,
           ),
           SizedBox(height: kDefaultPadding),
-          PersonalInfoMethods.buildPhoneField(
+          PersonalInfoFields.buildPhoneField(
             null,
             (value) => setState(() => _phone = value),
             context,
@@ -58,7 +60,7 @@ class _SignUpFormState extends State<SignUpForm> {
             callBack: (value) => setState(() => _gender = value),
           ),
           SizedBox(height: kDefaultPadding),
-          PersonalInfoMethods.buildDobField(_dob, context, () {
+          PersonalInfoFields.buildDobField(_dob, context, () {
             DatePicker.showDatePicker(context,
                 showTitleActions: true,
                 minTime: DateTime(1800, 1, 1),
@@ -74,24 +76,24 @@ class _SignUpFormState extends State<SignUpForm> {
             }, currentTime: DateTime.now(), locale: LocaleType.en);
           }),
           SizedBox(height: kDefaultPadding),
-          AccountMethods.buildEmailField(
+          AccountFields.buildEmailField(
             context,
             (value) => setState(() => _email = value),
           ),
           SizedBox(height: kDefaultPadding),
-          PersonalInfoMethods.buildGeneralField(
+          PersonalInfoFields.buildGeneralField(
             'Username',
             (value) => setState(() => _username = value),
             null,
             context,
           ),
           SizedBox(height: kDefaultPadding),
-          AccountMethods.buildPasswordField(
+          AccountFields.buildPasswordField(
             context,
             (value) => setState(() => _password = value),
           ),
           SizedBox(height: kDefaultPadding),
-          AccountMethods.buildConfirmedPasswordField(
+          AccountFields.buildConfirmedPasswordField(
               context, (value) => setState(() => _confirmedPass = value),
               (value) {
             if (value.isEmpty) {
@@ -107,15 +109,14 @@ class _SignUpFormState extends State<SignUpForm> {
             boxColor: kGreenColor,
             text: "Confirm",
             textColor: Colors.white,
-            onPressed: () {
+            onPressed: () async {
               if (_formKey.currentState.validate()) {
-                // TODO: Store values in the model
-                currentUser = User(
-                  firstname: _firstname,
-                  lastname: _lastname,
-                  gender: _gender,
-                  dob: _dob.value,
-                  phone: _phone,
+                User user = await _userController.signUp(
+                  _firstname,
+                  _lastname,
+                  _gender,
+                  _dob.value,
+                  _phone,
                 );
                 Navigator.pushNamed(
                   context,

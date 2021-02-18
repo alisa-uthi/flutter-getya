@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:getya/methods/account_method.dart';
+import 'package:getya/widgets/account_form_fields.dart';
 import 'package:getya/widgets/custom_btn.dart';
 
 import '../../../constants.dart';
@@ -26,7 +26,7 @@ class _ReportFormState extends State<ReportForm> {
         ),
         child: Column(
           children: [
-            AccountMethods.buildEmailField(
+            AccountFields.buildEmailField(
               context,
               (value) => setState(() => _email = value),
             ),
