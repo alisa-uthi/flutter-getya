@@ -12,6 +12,7 @@ import 'package:getya/screens/splash_screen.dart';
 
 import 'constants.dart';
 import 'routes.dart';
+import 'scroll_behavior_config.dart';
 
 void main() {
   runApp(MyApp());
@@ -36,6 +37,12 @@ class MyApp extends StatelessWidget {
           bodyText2: TextStyle(fontSize: 16, color: Colors.black),
         ),
       ),
+      builder: (context, child) {
+        return ScrollConfiguration(
+          behavior: ScrollBehaviorConfiguration(),
+          child: child,
+        );
+      },
       home: SignInScreen(),
     );
   }
