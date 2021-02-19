@@ -1,6 +1,7 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:getya/constants.dart';
 import 'package:getya/models/order.dart';
-import 'package:getya/widgets/thick_divider.dart';
 import 'package:getya/widgets/title_with_price.dart';
 
 class CostSection extends StatelessWidget {
@@ -12,7 +13,7 @@ class CostSection extends StatelessWidget {
         TitleWithPrice(title: "Delivery Fee", price: 30),
         SizedBox(height: 10),
         TitleWithPrice(title: "Total Cost", price: currentOrder.totalPrice),
-        ThickDivider(),
+        SizedBox(height: kDefaultPadding),
       ],
     );
   }

@@ -5,9 +5,8 @@ import 'package:getya/models/product.dart';
 class OrderSummary extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+    return Expanded(
+      child: ListView(
         children: [
           for (Product product in currentOrder.products.keys)
             Padding(
@@ -30,11 +29,15 @@ class OrderSummary extends StatelessWidget {
                       textAlign: TextAlign.center,
                     ),
                   ),
-                  Text(
-                    (product.price * currentOrder.products[product])
-                            .toString() +
-                        " THB",
-                    style: Theme.of(context).textTheme.bodyText1,
+                  Expanded(
+                    flex: 1,
+                    child: Text(
+                      (product.price * currentOrder.products[product])
+                              .toString() +
+                          " THB",
+                      style: Theme.of(context).textTheme.bodyText1,
+                      textAlign: TextAlign.right,
+                    ),
                   ),
                 ],
               ),

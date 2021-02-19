@@ -35,6 +35,8 @@ class Order {
   }
 
   static void submitOrder() {
+    tempProductsInOrder.clear();
+    currentOrder = Order();
     print("submit order and store in database");
   }
 }

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:getya/screens/destinationAddress/components/destination_map.dart';
-import 'package:getya/widgets/custom_drawer.dart';
 
 import '../../constants.dart';
 import 'components/delivery_address_form.dart';

@@ -37,8 +37,6 @@ class AccountFields {
 
   static Column buildPasswordField(
       BuildContext context, Function onChange, bool needConfirm) {
-    final node = FocusScope.of(context);
-
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:getya/models/order.dart';
 import 'package:getya/screens/confirmOrder/confirm_order_screen.dart';
-import 'package:getya/widgets/custom_btn.dart';
 import 'package:getya/widgets/custom_small_btn.dart';
 
 import '../../../constants.dart';

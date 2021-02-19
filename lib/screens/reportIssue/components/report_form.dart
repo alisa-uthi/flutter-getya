@@ -82,8 +82,6 @@ class _ReportFormState extends State<ReportForm> {
   }
 
   Column buildDetailField(BuildContext context) {
-    final node = FocusScope.of(context);
-
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -100,7 +98,6 @@ class _ReportFormState extends State<ReportForm> {
           minLines: 5,
           maxLines: 7,
           onChanged: (value) => setState(() => _detail = value),
-          onEditingComplete: () => node.unfocus(),
         ),
       ],
     );

@@ -22,8 +22,6 @@ class SucessScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      endDrawer: CustomDrawer(),
-      appBar: buildAppBar(context),
       body: Container(
         width: double.infinity,
         child: Column(
@@ -72,17 +70,5 @@ class SucessScreen extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  AppBar buildAppBar(BuildContext context) {
-    return titleAppBar != null
-        ? AppBar(
-            automaticallyImplyLeading: false,
-            title: Text(
-              titleAppBar,
-              style: Theme.of(context).textTheme.bodyText1,
-            ),
-          )
-        : AppBar();
   }
 }

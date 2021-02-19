@@ -32,12 +32,10 @@ class ConfirmOrderScreen extends StatelessWidget {
             SectionTitle(title: "Order Summary"),
             OrderSummary(),
             ThickDivider(),
-            SizedBox(height: 10),
             DestinationSection(),
             ThickDivider(),
             SizedBox(height: 10),
             CostSection(),
-            Spacer(),
             CustomBtn(
               text: "Confirm",
               textColor: Colors.white,

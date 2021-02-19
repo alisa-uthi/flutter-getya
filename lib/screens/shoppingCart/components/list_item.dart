@@ -4,10 +4,10 @@ import 'package:getya/models/product.dart';
 import 'package:getya/widgets/adjust_quantity_field.dart';
 
 class ListItem extends StatefulWidget {
-  Product product;
-  int quantity;
-  Function removeItem;
-  Function onQuantityChange;
+  final Product product;
+  final int quantity;
+  final Function removeItem;
+  final Function onQuantityChange;
 
   ListItem(
       {this.product, this.quantity, this.removeItem, this.onQuantityChange});
@@ -17,6 +17,14 @@ class ListItem extends StatefulWidget {
 }
 
 class _ListItemState extends State<ListItem> {
+  int _quantity;
+
+  @override
+  void initState() {
+    super.initState();
+    _quantity = widget.quantity;
+  }
+
   @override
   Widget build(BuildContext context) {
     ValueNotifier<double> totalPrice =
@@ -41,23 +49,23 @@ class _ListItemState extends State<ListItem> {
             ),
             Expanded(
               child: AdjustQuantityField(
-                quantity: widget.quantity,
+                quantity: _quantity,
                 increaseQuan: () {
                   setState(() {
-                    widget.quantity++;
+                    _quantity++;
                   });
-                  _handleChange(widget.quantity);
+                  _handleChange(_quantity);
                 },
                 decreaseQuan: () {
                   setState(() {
-                    widget.quantity--;
+                    _quantity--;
                   });
-                  if (widget.quantity <= 0) {
+                  if (_quantity <= 0) {
                     setState(() {
-                      widget.quantity = 1;
+                      _quantity = 1;
                     });
                   }
-                  _handleChange(widget.quantity);
+                  _handleChange(_quantity);
                 },
               ),
             ),

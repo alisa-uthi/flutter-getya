@@ -58,28 +58,7 @@ class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
           builder: (context, value, child) {
             return Column(
               children: [
-                SingleChildScrollView(
-                  child: Column(
-                    children: [
-                      for (Product product in tempProductsInOrder.keys)
-                        ListItem(
-                          product: product,
-                          quantity: tempProductsInOrder[product],
-                          removeItem: (product) {
-                            tempProductsInOrder.remove(product);
-                            computeTotalPrice();
-                            _productInOrder.notifyListeners();
-                          },
-                          onQuantityChange: (changedQuantity) {
-                            tempProductsInOrder[product] = changedQuantity;
-                            computeTotalPrice();
-                            _productInOrder.notifyListeners();
-                          },
-                        ),
-                    ],
-                  ),
-                ),
-                Spacer(),
+                buildShoppingList(),
                 ThickDivider(),
                 TitleWithPrice(title: "Delivery Fee", price: 30),
                 ThickDivider(),
@@ -98,6 +77,30 @@ class _ShoppingCartScreenState extends State<ShoppingCartScreen> {
             );
           },
         ),
+      ),
+    );
+  }
+
+  Widget buildShoppingList() {
+    return Expanded(
+      child: ListView(
+        children: [
+          for (Product product in tempProductsInOrder.keys)
+            ListItem(
+              product: product,
+              quantity: tempProductsInOrder[product],
+              removeItem: (product) {
+                tempProductsInOrder.remove(product);
+                computeTotalPrice();
+                _productInOrder.notifyListeners();
+              },
+              onQuantityChange: (changedQuantity) {
+                tempProductsInOrder[product] = changedQuantity;
+                computeTotalPrice();
+                _productInOrder.notifyListeners();
+              },
+            ),
+        ],
       ),
     );
   }

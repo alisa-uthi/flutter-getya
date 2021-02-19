@@ -1,16 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:getya/screens/confirmOrder/confirm_order_screen.dart';
-import 'package:getya/screens/destinationAddress/destination_screen.dart';
-import 'package:getya/screens/editProfile/edit_profile_screen.dart';
 import 'package:getya/screens/home/home_screen.dart';
-import 'package:getya/screens/pharmacyProducts/pharmacy_products_screen.dart';
-import 'package:getya/screens/reportIssue/report_issue_screen.dart';
-import 'package:getya/screens/shoppingCart/shopping_cart_screen.dart';
-import 'package:getya/screens/signin/signin_screen.dart';
-import 'package:getya/screens/signup/signup_screen.dart';
-import 'package:getya/screens/signup/signup_success_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:getya/screens/splash_screen.dart';
 
 import 'constants.dart';
 import 'routes.dart';

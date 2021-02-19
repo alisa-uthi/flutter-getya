@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 enum GenderOption { female, male, other }
 
 class GenderRadio extends StatefulWidget {
-  Function callBack;
+  final Function callBack;
   GenderRadio({this.callBack});
 
   @override
