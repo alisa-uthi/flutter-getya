@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:getya/constants.dart';
 import 'package:getya/screens/signup/components/signup_form.dart';
+import 'package:getya/widgets/avartar_with_camera.dart';
 
 class SignUpScreen extends StatelessWidget {
   static final routeName = '/signup';
@@ -15,17 +16,6 @@ class SignUpScreen extends StatelessWidget {
         ),
         backgroundColor: Colors.transparent,
         elevation: 0,
-        actions: [
-          IconButton(
-            icon: Icon(
-              Icons.camera_alt,
-              size: 30,
-            ),
-            onPressed: () {
-              // TODO: Add Image picker
-            },
-          )
-        ],
       ),
       body: Container(
         width: double.infinity,
@@ -39,6 +29,7 @@ class SignUpScreen extends StatelessWidget {
                 style: Theme.of(context).textTheme.bodyText1,
               ),
               SizedBox(height: kDefaultPadding),
+              AvartarWithCamera(),
               SignUpForm(),
             ],
           ),

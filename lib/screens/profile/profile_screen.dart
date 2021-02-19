@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:getya/constants.dart';
+import 'package:getya/widgets/avartar_image.dart';
 import 'package:getya/widgets/custom_drawer.dart';
 
 import 'components/edit_section.dart';
@@ -32,14 +33,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
           child: Column(
             children: [
               EditSection(),
-              Center(
-                child: CircleAvatar(
-                  backgroundImage: AssetImage(
-                    "assets/images/beni_avartar.png",
-                  ),
-                  radius: 60,
-                ),
-              ),
+              Center(child: AvartarImage()),
               PersonalInfoDetail(),
             ],
           ),

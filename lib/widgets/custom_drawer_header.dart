@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:getya/constants.dart';
 import 'package:getya/models/user.dart';
+import 'package:getya/widgets/avartar_image.dart';
 
 class CustomDrawerHeader extends StatelessWidget {
   const CustomDrawerHeader({
@@ -13,10 +14,7 @@ class CustomDrawerHeader extends StatelessWidget {
       padding: EdgeInsets.fromLTRB(kDefaultPadding, kDefaultPadding / 2, 5, 0),
       child: Row(
         children: [
-          CircleAvatar(
-            backgroundImage: AssetImage("assets/images/beni_avartar.png"),
-            radius: 50,
-          ),
+          AvartarImage(),
           SizedBox(width: 20),
           Text(
             currentUser != null

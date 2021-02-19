@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:getya/constants.dart';
+import 'package:getya/widgets/avartar_with_camera.dart';
 import 'package:getya/widgets/custom_drawer.dart';
 
-import 'components/avartar_with_camera.dart';
 import 'components/personal_info_form.dart';
 
 class EditProfileScreen extends StatefulWidget {
