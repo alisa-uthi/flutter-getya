@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:getya/constants.dart';
+import 'package:getya/screens/chat/chat_screen.dart';
+import 'package:getya/widgets/custom_btn.dart';
 import 'package:getya/widgets/section_title.dart';
 
 import 'driver_info.dart';
@@ -28,7 +30,15 @@ class DriverSection extends StatelessWidget {
                 DriverInfo(),
               ],
             ),
-            // DriverInfo(),
+            SizedBox(height: kDefaultPadding * 2),
+            CustomBtn(
+              text: "Chat",
+              textColor: Colors.white,
+              boxColor: Color(0xFF6A60D8),
+              onPressed: () {
+                Navigator.pushNamed(context, ChatScreen.routeName);
+              },
+            ),
           ],
         ),
       ),

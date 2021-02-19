@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:getya/screens/chat/chat_screen.dart';
 import 'package:getya/screens/confirmOrder/confirm_order_screen.dart';
 import 'package:getya/screens/deliveryStatus/delivery_status_screen.dart';
 import 'package:getya/screens/destinationAddress/destination_screen.dart';
@@ -36,4 +37,5 @@ final Map<String, WidgetBuilder> routes = {
   DestinationScreen.routeName: (context) => DestinationScreen(),
   ConfirmOrderScreen.routeName: (context) => ConfirmOrderScreen(),
   OrderCompleteScreen.routeName: (context) => OrderCompleteScreen(),
+  ChatScreen.routeName: (context) => ChatScreen(),
 };
