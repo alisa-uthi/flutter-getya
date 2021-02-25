@@ -15,6 +15,7 @@ class ConfirmCancelBtn extends StatelessWidget {
     @required String gender,
     @required String phone,
     @required String address,
+    @required String email,
   })  : _formKey = formKey,
         _dob = dob,
         _firstname = firstname,
@@ -22,6 +23,7 @@ class ConfirmCancelBtn extends StatelessWidget {
         _gender = gender,
         _phone = phone,
         _address = address,
+        _email = email,
         super(key: key);
 
   final GlobalKey<FormState> _formKey;
@@ -31,6 +33,7 @@ class ConfirmCancelBtn extends StatelessWidget {
   final String _gender;
   final String _phone;
   final String _address;
+  final String _email;
 
   @override
   Widget build(BuildContext context) {
@@ -49,6 +52,7 @@ class ConfirmCancelBtn extends StatelessWidget {
                 _dob.value,
                 _phone,
                 _address,
+                _email,
               );
               Navigator.pushNamed(context, ProfileScreen.routeName);
             }

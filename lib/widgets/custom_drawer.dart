@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:getya/models/user.dart';
 import 'package:getya/screens/deliveryStatus/delivery_status_screen.dart';
 import 'package:getya/screens/home/home_screen.dart';
 import 'package:getya/screens/notification/notification_screen.dart';
@@ -57,6 +58,9 @@ class CustomDrawer extends StatelessWidget {
                         context,
                         routeNames[index],
                       );
+                      if (titles[index] == "Sign Out") {
+                        currentUser = dummyUser;
+                      }
                     },
                     child: ListTile(
                       leading: icons[index],

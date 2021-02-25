@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'file:///D:/Work_ICT/3rd%20YEAR_2020/Wireless/getya/lib/screens/signin/signin_screen.dart';
+
+import 'signin/signin_screen.dart';
 
 class SplashScreen extends StatelessWidget {
   static final routeName = '/spash';

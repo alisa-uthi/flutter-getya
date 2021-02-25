@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:getya/models/user.dart';
 
 import '../constants.dart';
 
@@ -18,6 +19,7 @@ class AccountFields {
         TextFormField(
           keyboardType: TextInputType.emailAddress,
           textInputAction: TextInputAction.next,
+          initialValue: currentUser == null ? '' : currentUser.email,
           decoration: inputDecoration.copyWith(hintText: "Email"),
           validator: (value) {
             if (value.isEmpty) {
