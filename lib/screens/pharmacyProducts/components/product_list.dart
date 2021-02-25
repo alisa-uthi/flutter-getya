@@ -7,7 +7,9 @@ import '../../../constants.dart';
 
 class ProductList extends StatefulWidget {
   final Pharmacy pharmacy;
-  ProductList({this.pharmacy});
+  final String category;
+
+  ProductList({@required this.pharmacy, this.category});
   @override
   _ProductListState createState() => _ProductListState();
 }
@@ -16,6 +18,7 @@ class _ProductListState extends State<ProductList> {
   List<Product> _filteredProducts = [];
   List<Product> _originalProducts = [];
   int _selectedIndexCate = 0;
+  String _defaultCategory;
 
   void _getProductsOfPharmacy() {
     dummyProducts.forEach((product) {
@@ -50,16 +53,32 @@ class _ProductListState extends State<ProductList> {
   void _filterProductCategory() {
     List<Product> tempProducts = [];
     String category = '';
-    switch (_selectedIndexCate) {
-      case 1:
-        category = "Medical Equipment";
-        break;
-      case 2:
-        category = "Cosmeceutical";
-        break;
-      default:
-        category = "Drug";
-        break;
+    if (_defaultCategory == null) {
+      switch (_selectedIndexCate) {
+        case 1:
+          category = "Medical Equipment";
+          break;
+        case 2:
+          category = "Cosmeceutical";
+          break;
+        default:
+          category = "Drug";
+          break;
+      }
+    } else {
+      category = widget.category;
+      switch (category) {
+        case "Medical Equipment":
+          _selectedIndexCate = 1;
+          break;
+        case "Cosmeceutical":
+          _selectedIndexCate = 2;
+          break;
+        default:
+          _selectedIndexCate = 0;
+          break;
+      }
+      _defaultCategory = null;
     }
     _originalProducts.forEach((product) {
       if (product.category == category) {
@@ -77,6 +96,7 @@ class _ProductListState extends State<ProductList> {
   void initState() {
     super.initState();
     _getProductsOfPharmacy();
+    _defaultCategory = widget.category ?? null;
     _filterProductCategory();
   }
 
