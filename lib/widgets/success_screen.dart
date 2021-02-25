@@ -1,14 +1,17 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:getya/widgets/circular_progress.dart';
 
 import '../constants.dart';
-import 'custom_drawer.dart';
 
-class SucessScreen extends StatelessWidget {
+class SucessScreen extends StatefulWidget {
   final String titleAppBar;
   final String title;
   final String message;
   final String submessage;
   final Function navigation;
+  final Widget screen;
 
   const SucessScreen({
     Key key,
@@ -16,8 +19,34 @@ class SucessScreen extends StatelessWidget {
     @required this.title,
     @required this.message,
     @required this.submessage,
-    @required this.navigation,
+    this.navigation,
+    this.screen,
   }) : super(key: key);
+
+  @override
+  _SucessScreenState createState() => _SucessScreenState();
+}
+
+class _SucessScreenState extends State<SucessScreen> {
+  @override
+  void initState() {
+    super.initState();
+    if (widget.screen != null) {
+      startTime();
+    }
+  }
+
+  startTime() async {
+    var duration = new Duration(seconds: 3);
+    return new Timer(duration, route);
+  }
+
+  route() {
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => widget.screen),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +58,7 @@ class SucessScreen extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Text(
-              title,
+              widget.title,
               style: TextStyle(
                 fontSize: 25,
                 fontWeight: FontWeight.bold,
@@ -41,31 +70,33 @@ class SucessScreen extends StatelessWidget {
               color: kGreenColor,
             ),
             Text(
-              message,
+              widget.message,
               style: TextStyle(
                 fontSize: 25,
                 fontWeight: FontWeight.bold,
               ),
             ),
             Text(
-              submessage,
+              widget.submessage,
               style: TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
               ),
             ),
-            GestureDetector(
-              onTap: navigation,
-              child: Text(
-                "Here",
-                style: TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                  color: kGreenColor,
-                  decoration: TextDecoration.underline,
-                ),
-              ),
-            ),
+            widget.screen == null
+                ? GestureDetector(
+                    onTap: widget.navigation,
+                    child: Text(
+                      "Here",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: kGreenColor,
+                        decoration: TextDecoration.underline,
+                      ),
+                    ),
+                  )
+                : CircularProgress(),
           ],
         ),
       ),

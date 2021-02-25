@@ -11,10 +11,8 @@ class ReportSucessScreen extends StatelessWidget {
       titleAppBar: "Report Issue",
       title: "The feedback has been received",
       message: "We will get back within 3 days",
-      submessage: "You can return to home page",
-      navigation: () {
-        Navigator.pushNamed(context, HomeScreen.routeName);
-      },
+      submessage: "You will return to home page in 3 seconds",
+      screen: HomeScreen(),
     );
   }
 }
