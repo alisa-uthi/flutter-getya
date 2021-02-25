@@ -1,9 +1,36 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:getya/constants.dart';
+import 'package:getya/widgets/circular_progress.dart';
 
 import 'signin/signin_screen.dart';
 
-class SplashScreen extends StatelessWidget {
+class SplashScreen extends StatefulWidget {
   static final routeName = '/spash';
+
+  @override
+  _SplashScreenState createState() => _SplashScreenState();
+}
+
+class _SplashScreenState extends State<SplashScreen> {
+  @override
+  void initState() {
+    super.initState();
+    startTime();
+  }
+
+  startTime() async {
+    var duration = new Duration(seconds: 3);
+    return new Timer(duration, route);
+  }
+
+  route() {
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => SignInScreen()),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,6 +57,7 @@ class SplashScreen extends StatelessWidget {
                   color: Colors.white,
                 ),
               ),
+              CircularProgress(),
             ],
           ),
         ),
