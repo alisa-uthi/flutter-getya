@@ -9,8 +9,12 @@ class ListItem extends StatefulWidget {
   final Function removeItem;
   final Function onQuantityChange;
 
-  ListItem(
-      {this.product, this.quantity, this.removeItem, this.onQuantityChange});
+  ListItem({
+    this.product,
+    this.quantity,
+    this.removeItem,
+    this.onQuantityChange,
+  });
 
   @override
   _ListItemState createState() => _ListItemState();
