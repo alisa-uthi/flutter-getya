@@ -8,7 +8,12 @@ import 'package:getya/widgets/view_cart_bottom_nav_bar.dart';
 class PharmacyProductsScreen extends StatefulWidget {
   static final routeName = "/pharmacy/products";
   final Pharmacy pharmacy;
-  PharmacyProductsScreen({this.pharmacy});
+  final String category;
+
+  PharmacyProductsScreen({
+    this.pharmacy,
+    this.category,
+  });
 
   @override
   _PharmacyProductsScreenState createState() => _PharmacyProductsScreenState();
@@ -36,6 +41,7 @@ class _PharmacyProductsScreenState extends State<PharmacyProductsScreen> {
         ),
         child: ProductList(
           pharmacy: widget.pharmacy,
+          category: widget.category,
         ),
       ),
     );

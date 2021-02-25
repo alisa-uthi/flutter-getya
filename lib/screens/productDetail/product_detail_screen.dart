@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:getya/constants.dart';
 import 'package:getya/controller/order_controller.dart';
@@ -94,6 +95,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                   MaterialPageRoute(
                     builder: (context) => PharmacyProductsScreen(
                       pharmacy: widget.product.pharmacy,
+                      category: widget.product.category,
                     ),
                   ),
                 );
