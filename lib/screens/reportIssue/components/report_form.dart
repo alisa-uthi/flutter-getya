@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:getya/models/order.dart';
+import 'package:getya/models/user.dart';
 import 'package:getya/widgets/account_form_fields.dart';
 import 'package:getya/widgets/custom_btn.dart';
 
@@ -12,7 +14,8 @@ class ReportForm extends StatefulWidget {
 
 class _ReportFormState extends State<ReportForm> {
   final _formKey = GlobalKey<FormState>();
-  String _email, _problem, _detail;
+  String _email = currentUser.email;
+  String _problem, _detail;
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +37,7 @@ class _ReportFormState extends State<ReportForm> {
             buildProblemField(context),
             SizedBox(height: kDefaultPadding),
             buildDetailField(context),
-            SizedBox(height: kDefaultPadding * 3),
+            SizedBox(height: kDefaultPadding * 2),
             CustomBtn(
               text: "Submit",
               textColor: Colors.white,

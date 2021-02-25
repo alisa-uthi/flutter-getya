@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:getya/widgets/thick_divider.dart';
 
 class User {
   String firstname;
@@ -7,6 +8,7 @@ class User {
   String gender;
   String phone;
   String address;
+  String email;
 
   User({
     @required this.dob,
@@ -15,6 +17,7 @@ class User {
     @required this.lastname,
     @required this.phone,
     @required this.address,
+    this.email,
   });
 
   static void signUp(
@@ -24,6 +27,7 @@ class User {
     String dob,
     String phone,
     String address,
+    String email,
   ) {
     currentUser = User(
       firstname: firstname,
@@ -32,6 +36,7 @@ class User {
       dob: dob,
       phone: phone,
       address: address,
+      email: email,
     );
   }
 
@@ -49,6 +54,7 @@ class User {
     String dob,
     String phone,
     String address,
+    String email,
   ) {
     currentUser = User(
       firstname: firstname,
@@ -57,6 +63,7 @@ class User {
       dob: dob,
       phone: phone,
       address: address,
+      email: email,
     );
   }
 }
@@ -69,3 +76,5 @@ User currentUser = User(
   dob: "1999-02-24",
   address: "Kratum Lom, Salaya, Nakhorn Pathom",
 );
+
+User dummyUser = currentUser;

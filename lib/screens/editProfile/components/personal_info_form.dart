@@ -18,6 +18,7 @@ class _PersonalInfoFormState extends State<PersonalInfoForm> {
   String _gender = currentUser.gender;
   String _phone = currentUser.phone;
   String _address = currentUser.address;
+  String _email = currentUser.email;
   ValueNotifier<String> _dob = ValueNotifier(currentUser.dob);
 
   void _handleDatePicker() {
@@ -94,6 +95,7 @@ class _PersonalInfoFormState extends State<PersonalInfoForm> {
               gender: _gender,
               phone: _phone,
               address: _address,
+              email: _email,
             ),
             SizedBox(height: kDefaultPadding),
           ],

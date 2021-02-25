@@ -8,6 +8,7 @@ class UserController {
     String dob,
     String phone,
     String address,
+    String email,
   ) async {
     await User.signUp(
       firstname,
@@ -16,6 +17,7 @@ class UserController {
       dob,
       phone,
       address,
+      email,
     );
     return currentUser;
   }
@@ -34,8 +36,17 @@ class UserController {
     String dob,
     String phone,
     String address,
+    String email,
   ) async {
-    await User.updateUserInfo(firstname, lastname, gender, dob, phone, address);
+    await User.updateUserInfo(
+      firstname,
+      lastname,
+      gender,
+      dob,
+      phone,
+      address,
+      email,
+    );
     return currentUser;
   }
 }
