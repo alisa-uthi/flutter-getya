@@ -17,7 +17,7 @@ class DestinationScreen extends StatelessWidget {
           style: Theme.of(context).textTheme.bodyText1,
         ),
       ),
-      bottomNavigationBar: TotalCostSection(),
+      // bottomNavigationBar: TotalCostSection(),
       body: Container(
         padding: EdgeInsets.all(kDefaultPadding),
         child: SingleChildScrollView(

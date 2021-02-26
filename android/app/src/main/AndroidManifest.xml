@@ -5,11 +5,23 @@
          In most cases you can leave this as-is, but you if you want to provide
          additional functionality it is fine to subclass or reimplement
          FlutterApplication and put your custom class here. -->
-    <!-- <user-permission android:name="android.permission.INTERNET" /> -->
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission
+        android:name="android.permission.ACCESS_FINE_LOCATION" />
+   <uses-permission
+        android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    
     <application
         android:name="io.flutter.app.FlutterApplication"
         android:label="GetYa"
         android:icon="@mipmap/ic_launcher">
+
+        <!-- Google Maps API -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyCjCCx9JBxT6zubijMuKLkiHtBu4Co8kww" />
+
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
@@ -44,5 +56,8 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+
+        
+    
     </application>
 </manifest>
