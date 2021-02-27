@@ -2,9 +2,13 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
-import 'package:location/location.dart';
+import 'package:geocoding/geocoding.dart';
 
 class DestinationMap extends StatefulWidget {
+  final Function onChangeLocation;
+
+  const DestinationMap({Key key, this.onChangeLocation}) : super(key: key);
+
   @override
   _DestinationMapState createState() => _DestinationMapState();
 }
@@ -13,7 +17,8 @@ class _DestinationMapState extends State<DestinationMap> {
   Completer<GoogleMapController> _controller = Completer();
   LatLng _initialPosition;
   final Set<Marker> _markers = {};
-  bool isLoading = false;
+  bool _isLoading = false;
+  List<Placemark> _placemarks;
 
   @override
   void initState() {
@@ -22,7 +27,7 @@ class _DestinationMapState extends State<DestinationMap> {
   }
 
   void getUserPosition() async {
-    setState(() => isLoading = true);
+    setState(() => _isLoading = true);
 
     Position currentPosition = await Geolocator.getCurrentPosition();
     setState(() {
@@ -31,32 +36,36 @@ class _DestinationMapState extends State<DestinationMap> {
     });
 
     _onAddMarkerButtonPressed(_initialPosition);
-    setState(() => isLoading = false);
+
+    setState(() => _isLoading = false);
   }
 
   void _onMapCreated(GoogleMapController controller) {
     _controller.complete(controller);
   }
 
-  void _onAddMarkerButtonPressed(LatLng latLng) {
+  void _onAddMarkerButtonPressed(LatLng latLng) async {
     setState(() {
       _markers.clear();
       _markers.add(Marker(
-        // This marker id can be anything that uniquely identifies each marker.
         markerId: MarkerId(latLng.toString()),
         position: latLng,
-        infoWindow: InfoWindow(
-          title: "Really cool place",
-          snippet: "5 Star Rating",
-        ),
         icon: BitmapDescriptor.defaultMarker,
       ));
     });
+
+    // Get place name
+    _placemarks = await placemarkFromCoordinates(
+      latLng.latitude,
+      latLng.longitude,
+    );
+
+    widget.onChangeLocation(_placemarks);
   }
 
   @override
   Widget build(BuildContext context) {
-    return isLoading
+    return _isLoading
         ? Center(
             child: CircularProgressIndicator(),
           )
@@ -67,7 +76,7 @@ class _DestinationMapState extends State<DestinationMap> {
               onMapCreated: _onMapCreated,
               initialCameraPosition: CameraPosition(
                 target: _initialPosition,
-                zoom: 11.0,
+                zoom: 15.0,
               ),
               markers: _markers,
               onTap: (latLng) {

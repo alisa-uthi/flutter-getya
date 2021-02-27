@@ -3,6 +3,10 @@ import 'package:getya/constants.dart';
 import 'package:getya/models/user.dart';
 
 class DeliveryAddressForm extends StatefulWidget {
+  final String address;
+
+  const DeliveryAddressForm({Key key, this.address}) : super(key: key);
+
   @override
   _DeliveryAddressFormState createState() => _DeliveryAddressFormState();
 }
@@ -22,12 +26,13 @@ class _DeliveryAddressFormState extends State<DeliveryAddressForm> {
         ),
         SizedBox(height: 10),
         TextFormField(
+          key: Key(widget.address),
           textInputAction: TextInputAction.next,
           decoration: inputDecoration,
-          initialValue: _address,
+          initialValue: widget.address ?? _address,
           onChanged: (value) => setState(() => _address = value),
           onEditingComplete: () => node.nextFocus(),
-        )
+        ),
       ],
     );
   }
