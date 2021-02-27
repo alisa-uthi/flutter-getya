@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:getya/screens/destinationAddress/components/destination_map.dart';
 import 'package:getya/screens/home/home_screen.dart';
 import 'package:getya/screens/splash_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import 'constants.dart';
 import 'routes.dart';
-import 'screens/destinationAddress/destination_screen.dart';
 import 'scroll_behavior_config.dart';
 
 void main() {
@@ -38,7 +36,7 @@ class MyApp extends StatelessWidget {
           child: child,
         );
       },
-      home: DestinationScreen(),
+      home: HomeScreen(),
     );
   }
 }
