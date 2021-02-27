@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:getya/models/user.dart';
+import 'package:getya/models/order.dart';
 import 'package:getya/widgets/section_title.dart';
 
 class DestinationSection extends StatelessWidget {
@@ -10,7 +10,7 @@ class DestinationSection extends StatelessWidget {
       children: [
         SectionTitle(title: "Destination"),
         Text(
-          currentUser.address,
+          currentOrder.destination,
           style: Theme.of(context).textTheme.bodyText1,
         ),
       ],

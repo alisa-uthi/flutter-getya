@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:getya/controller/order_controller.dart';
 import 'package:getya/screens/destinationAddress/components/destination_map.dart';
 
 import '../../constants.dart';
@@ -17,6 +18,7 @@ class _DestinationScreenState extends State<DestinationScreen> {
   String _street, _country, _postalCode, _area, _subLocality;
   bool _isLoading = true;
   ValueNotifier<String> _location = ValueNotifier('');
+  OrderController _orderController = OrderController();
 
   void changeLocation(placemarks) {
     setState(() {
@@ -38,6 +40,9 @@ class _DestinationScreenState extends State<DestinationScreen> {
           "$_street, $_subLocality, $_area $_postalCode, $_country";
       _isLoading = false;
     });
+
+    // Add destination address to the order
+    _orderController.addDestination(_location.value);
 
     _location.notifyListeners();
   }
