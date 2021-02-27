@@ -7,6 +7,7 @@ class Order {
   DateTime orderAt;
   bool isPaid;
   double totalPrice;
+  String destination;
 
   Order({
     this.isPaid,
@@ -14,6 +15,7 @@ class Order {
     this.products,
     this.user,
     this.totalPrice,
+    this.destination,
   });
 
   static void addProductToCart(Product product, int quantity) {
@@ -38,6 +40,10 @@ class Order {
     tempProductsInOrder.clear();
     currentOrder = Order();
     print("submit order and store in database");
+  }
+
+  static void addDestination(String destination) {
+    currentOrder.destination = destination;
   }
 }
 

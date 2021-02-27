@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
+import 'package:getya/constants.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:geocoding/geocoding.dart';
 
@@ -34,7 +35,6 @@ class _DestinationMapState extends State<DestinationMap> {
       _initialPosition =
           LatLng(currentPosition.latitude, currentPosition.longitude);
     });
-
     _onAddMarkerButtonPressed(_initialPosition);
 
     setState(() => _isLoading = false);
@@ -66,8 +66,17 @@ class _DestinationMapState extends State<DestinationMap> {
   @override
   Widget build(BuildContext context) {
     return _isLoading
-        ? Center(
-            child: CircularProgressIndicator(),
+        ? Padding(
+            padding: EdgeInsets.only(top: 50),
+            child: Center(
+              child: Column(
+                children: [
+                  CircularProgressIndicator(),
+                  SizedBox(height: kDefaultPadding),
+                  Text("Loading your location...")
+                ],
+              ),
+            ),
           )
         : Container(
             width: double.infinity,
