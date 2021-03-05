@@ -57,10 +57,10 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
             ),
             SizedBox(height: kDefaultPadding),
             DetailList(product: widget.product),
-            SizedBox(height: kDefaultPadding * 2),
+            SizedBox(height: kDefaultPadding * 1.5),
             Divider(
               color: Colors.black,
-              thickness: 5,
+              thickness: 2,
             ),
             SizedBox(height: kDefaultPadding / 2),
             Row(
@@ -83,7 +83,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                 ),
               ],
             ),
-            SizedBox(height: kDefaultPadding / 2),
+            SizedBox(height: kDefaultPadding),
             CustomBtn(
               text: "Add To Cart",
               textColor: Colors.white,

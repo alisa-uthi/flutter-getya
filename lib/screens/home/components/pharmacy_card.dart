@@ -28,7 +28,7 @@ class PharmacyCard extends StatelessWidget {
       child: Container(
         width: double.infinity,
         height: 80,
-        margin: EdgeInsets.only(bottom: kDefaultPadding / 2),
+        margin: EdgeInsets.symmetric(vertical: kDefaultPadding / 2),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(5),
@@ -36,13 +36,19 @@ class PharmacyCard extends StatelessWidget {
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Image.asset(pharmacy.imgPath),
+            Image.asset(
+              pharmacy.imgPath,
+              width: 100,
+              height: 80,
+              fit: BoxFit.cover,
+            ),
             SizedBox(width: kDefaultPadding / 2),
             Padding(
               padding: const EdgeInsets.only(top: kDefaultPadding / 2.5),
               child: Text(
                 pharmacy.name,
                 style: Theme.of(context).textTheme.bodyText1,
+                overflow: TextOverflow.ellipsis,
               ),
             ),
             Spacer(),

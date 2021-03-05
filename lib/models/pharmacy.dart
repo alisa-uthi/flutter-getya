@@ -4,7 +4,6 @@ class Pharmacy {
   String endTime;
   String imgPath;
   // List<Product> products;
-  // List<Pharmacist> pharmacists;
 
   Pharmacy({this.name, this.startTime, this.endTime, this.imgPath});
 }

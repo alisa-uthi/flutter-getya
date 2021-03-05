@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
         textTheme:
             GoogleFonts.notoSansTextTheme(Theme.of(context).textTheme).copyWith(
           headline1: TextStyle(
-            fontSize: 24,
+            fontSize: 22,
             fontWeight: FontWeight.bold,
             color: Colors.black,
           ),
@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
           child: child,
         );
       },
-      home: HomeScreen(),
+      home: SplashScreen(),
     );
   }
 }

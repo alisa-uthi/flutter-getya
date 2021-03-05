@@ -13,7 +13,7 @@ class ProductCard extends StatelessWidget {
     return Container(
       width: double.infinity,
       height: 80,
-      margin: EdgeInsets.only(bottom: kDefaultPadding / 2),
+      margin: EdgeInsets.symmetric(vertical: kDefaultPadding / 2),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(5),
@@ -21,7 +21,12 @@ class ProductCard extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.end,
         children: [
-          Image.asset(product.imgPath),
+          Image.asset(
+            product.imgPath,
+            width: 100,
+            height: 80,
+            fit: BoxFit.cover,
+          ),
           SizedBox(width: kDefaultPadding / 2),
           Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -30,6 +35,7 @@ class ProductCard extends StatelessWidget {
               Text(
                 product.name,
                 style: Theme.of(context).textTheme.bodyText1,
+                overflow: TextOverflow.ellipsis,
               ),
               Text(
                 "${product.price} THB",

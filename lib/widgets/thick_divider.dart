@@ -9,7 +9,7 @@ class ThickDivider extends StatelessWidget {
   Widget build(BuildContext context) {
     return Divider(
       color: Colors.black,
-      thickness: 2,
+      thickness: 1.5,
       height: 30,
     );
   }
