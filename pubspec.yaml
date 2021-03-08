@@ -23,6 +23,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  responsive_framework: ^0.0.15
 
   # Google Fonts
   google_fonts: ^1.1.2

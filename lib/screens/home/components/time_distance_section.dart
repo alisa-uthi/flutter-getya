@@ -14,7 +14,10 @@ class TimeAndDistanceSection extends StatelessWidget {
       children: [
         Icon(icon),
         SizedBox(width: 3),
-        Text(text),
+        Text(
+          text,
+          style: TextStyle(fontSize: 12),
+        ),
       ],
     );
   }
