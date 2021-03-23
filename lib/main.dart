@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:getya/screens/chat/chat_screen.dart';
 import 'package:getya/screens/home/home_screen.dart';
 import 'package:getya/screens/splash_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -51,7 +52,7 @@ class MyApp extends StatelessWidget {
       //     child: child,
       //   );
       // },
-      home: SplashScreen(),
+      home: HomeScreen(),
     );
   }
 }

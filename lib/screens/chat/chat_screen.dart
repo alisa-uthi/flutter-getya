@@ -4,8 +4,22 @@ import 'package:getya/constants.dart';
 import 'components/message_box.dart';
 import 'components/type_section.dart';
 
-class ChatScreen extends StatelessWidget {
+class ChatScreen extends StatefulWidget {
   static final routeName = '/chat';
+
+  @override
+  _ChatScreenState createState() => _ChatScreenState();
+}
+
+class _ChatScreenState extends State<ChatScreen> {
+  List<String> _myMessage = ['Okay!'];
+
+  void _updateMyMessage(message) {
+    print(message);
+    setState(() {
+      _myMessage.add(message);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,25 +40,35 @@ class ChatScreen extends StatelessWidget {
           style: Theme.of(context).textTheme.bodyText1,
         ),
       ),
-      body: Container(
-        width: double.infinity,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(height: kDefaultPadding),
-            MessageBox(
-              message: "I have already received your order!",
-              position: FractionalOffset.bottomLeft,
+      body: Column(
+        children: [
+          Expanded(
+            child: Container(
+              width: double.infinity,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  SizedBox(height: kDefaultPadding),
+                  MessageBox(
+                    message: "I have already received your order!",
+                    position: FractionalOffset.bottomLeft,
+                  ),
+                  SizedBox(height: kDefaultPadding / 2),
+                  for (var message in _myMessage)
+                    MessageBox(
+                      message: message,
+                      position: FractionalOffset.bottomRight,
+                    ),
+                ],
+              ),
             ),
-            SizedBox(height: kDefaultPadding / 2),
-            MessageBox(
-              message: "Okay!",
-              position: FractionalOffset.bottomRight,
-            ),
-            Spacer(),
-            TypeSection(),
-          ],
-        ),
+          ),
+          TypeSection(
+            onChanged: (message) {
+              _updateMyMessage(message);
+            },
+          ),
+        ],
       ),
     );
   }
