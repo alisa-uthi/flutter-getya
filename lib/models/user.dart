@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:getya/widgets/thick_divider.dart';
 
 class User {
   String firstname;
