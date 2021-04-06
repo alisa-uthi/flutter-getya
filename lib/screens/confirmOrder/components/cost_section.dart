@@ -1,4 +1,3 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:getya/constants.dart';
 import 'package:getya/models/order.dart';

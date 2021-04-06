@@ -10,7 +10,7 @@ class UserController {
     String address,
     String email,
   ) async {
-    await User.signUp(
+    User.signUp(
       firstname,
       lastname,
       gender,
@@ -26,7 +26,7 @@ class UserController {
     String email,
     String password,
   ) async {
-    await User.signIn(email, password);
+    User.signIn(email, password);
   }
 
   Future<User> updateUserInfo(
@@ -38,7 +38,7 @@ class UserController {
     String address,
     String email,
   ) async {
-    await User.updateUserInfo(
+    User.updateUserInfo(
       firstname,
       lastname,
       gender,

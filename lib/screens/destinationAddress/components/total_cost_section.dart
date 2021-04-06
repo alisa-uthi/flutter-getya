@@ -35,7 +35,6 @@ class TotalCostSection extends StatelessWidget {
           CustomSmallBtn(
             text: "Next",
             onPressed: () {
-              // TODO: Save destination
               Navigator.pushNamed(context, ConfirmOrderScreen.routeName);
             },
           ),
